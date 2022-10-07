@@ -1026,7 +1026,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 761872669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2eaf61bf32dbd44c9fb252714fa62e6, type: 3}
+  m_Script: {fileID: 11500000, guid: 13af9f86214ccb04d914bce5a784ee60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   unitStatus: {fileID: 761872675}
@@ -1043,7 +1043,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 761872669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c4bd2601eeef3c247a5dc71c59d9a149, type: 3}
+  m_Script: {fileID: 11500000, guid: d4b1162a589df6c4baaf36f33c1573ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: {fileID: 11400000, guid: 10e9b878778447243b65d569291648ac, type: 2}
@@ -1098,7 +1098,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   timeToSlowDown: {fileID: 11400000, guid: 8c715705678dc5e4eb545d9a819938c6, type: 2}
   control: {fileID: 410178881}
-  unitStatus: {fileID: 761872675}
+  entityStatus: {fileID: 761872675}
 --- !u!114 &761872675
 MonoBehaviour:
   m_ObjectHideFlags: 0
