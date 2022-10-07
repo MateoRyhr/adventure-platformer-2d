@@ -10,7 +10,6 @@ public class ButtonInput : MonoBehaviour
     public UnityEvent Action;
 
     public void ButtonAction(InputAction.CallbackContext obj){
-        Debug.Log("Button pressed");
         Action.Invoke();
     }
     
@@ -22,7 +21,6 @@ public class ButtonInput : MonoBehaviour
     }
 
     private void OnEnable() {
-        Debug.Log("Button action subscribed");
         SubscribeAction();
     }
 }

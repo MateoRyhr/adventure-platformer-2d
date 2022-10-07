@@ -11,12 +11,10 @@ public class ActionsAssetEnabler : MonoBehaviour
     }
 
     public void EnableInputs(){
-        Debug.Log("Inputs enabled");
         ActionsAsset.Enable();
     }
 
     public void DisableInputs(){
-        Debug.Log("Inputs disabled");
         ActionsAsset.Disable();
     }
 }

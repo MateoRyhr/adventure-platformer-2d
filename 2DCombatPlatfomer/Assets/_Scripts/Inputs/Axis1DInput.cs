@@ -8,33 +8,15 @@ public class Axis1DInput : MonoBehaviour
     [SerializeField] InputActionAsset playerActionsAsset;
     [SerializeField] int actionMapNumber;
     [SerializeField] int actionNumber;
-    // [Tooltip("Axis x = 0 / y = 1 / z = 2")]
-    // [SerializeField] [Range(0,2)] int axis;
-    // [Header("Data")]
-    // [SerializeField] Vector3Variable axisInputValue; //Here will be written the input data
     [Header("Input events")]
     public UnityEvent OnAxisStart;
     public UnityEvent OnAxisMoving;
     public UnityEvent OnAxisEnd;
 
-    //Values to determinate in which axis will be there the input value
-    // private int _axisX = 0;
-    // private int _axisY = 0;
-    // private int _axisZ = 0;
-
     public float AxisValue { get; set; }
-    // private float _axisValue = 0f;
-
-    // private void Awake()
-    // {   
-    //     if(axis == 0) _axisX = 1;
-    //     else if(axis == 1) _axisY = 1;
-    //     else _axisZ = 1;
-    // }
 
     private void Update() {
         AxisValue = playerActionsAsset.actionMaps[actionMapNumber].actions[actionNumber].ReadValue<float>();
-        // axisInputValue.Value = new Vector3(_axisValue * _axisX,_axisValue * _axisY,_axisValue * _axisZ);
         if(playerActionsAsset.actionMaps[actionMapNumber].actions[actionNumber].IsPressed()){
             AxisMoving();
         }
