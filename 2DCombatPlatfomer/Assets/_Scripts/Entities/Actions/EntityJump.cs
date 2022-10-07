@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class UnitJump : MonoBehaviour
+public class EntityJump : MonoBehaviour
 {
     [SerializeField] EntityStatus2D unitStatus;
     [SerializeField] FloatVariable JumpForce;

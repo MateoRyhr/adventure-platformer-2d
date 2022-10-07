@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EntityAcelerationMovement2D : UnitMovement
+public class EntityAcelerationMovement2D : EntityMovement
 {
     [Header("Movement config")]
     [SerializeField] private FloatVariable maxSpeed;
