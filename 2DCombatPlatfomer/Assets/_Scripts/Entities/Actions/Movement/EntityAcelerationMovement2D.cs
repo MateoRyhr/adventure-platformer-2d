@@ -12,17 +12,10 @@ public class EntityAcelerationMovement2D : EntityMovement
     [Header("Unit data")]
     [SerializeField] private EntityMovementController2D control;
     [SerializeField] private EntityStatus2D entityStatus;
-
-    //Components
-    private Rigidbody2D _rb;
+    [SerializeField] private Rigidbody2D rigidBody;
 
     private float _timeAccelerating;
     private float _timeSlowingDown;
-
-    private void Awake()
-    {
-        _rb = GetComponent<Rigidbody2D>();
-    }
 
     private void FixedUpdate()
     {
@@ -38,18 +31,18 @@ public class EntityAcelerationMovement2D : EntityMovement
             control.Direction.normalized * maxSpeed.Value,
             acelerationCurve.Evaluate(_timeAccelerating / timeToReachMaxSpeed.Value)
         );
-        _rb.velocity = new Vector2(newVelocity.x,_rb.velocity.y);
+        rigidBody.velocity = new Vector2(newVelocity.x,rigidBody.velocity.y);
         _timeAccelerating += Time.fixedDeltaTime;
         if(_timeAccelerating > timeToReachMaxSpeed.Value) _timeAccelerating = timeToReachMaxSpeed.Value;
     }
 
     public override void Stop(){
         Vector2 newVelocity = Vector2.Lerp(
-            _rb.velocity,
+            rigidBody.velocity,
             Vector2.zero,
             acelerationCurve.Evaluate(_timeSlowingDown / timeToSlowDown.Value)
         );
-        _rb.velocity = _rb.velocity = new Vector2(newVelocity.x,_rb.velocity.y);
+        rigidBody.velocity = rigidBody.velocity = new Vector2(newVelocity.x,rigidBody.velocity.y);
         if(control.Direction != Vector2.zero) _timeSlowingDown = 0f;
         else _timeSlowingDown += Time.fixedDeltaTime;
         if(_timeSlowingDown > timeToSlowDown.Value) _timeSlowingDown = timeToSlowDown.Value;
