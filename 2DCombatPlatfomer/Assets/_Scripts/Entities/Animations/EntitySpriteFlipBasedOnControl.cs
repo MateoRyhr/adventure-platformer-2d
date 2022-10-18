@@ -2,30 +2,24 @@ using UnityEngine;
 
 public class EntitySpriteFlipBasedOnControl : MonoBehaviour
 {
+    [Tooltip("The object that contains all the character")]
+    [SerializeField] private Transform entityParent;
     [SerializeField] private EntityMovementController2D controller;
 
-    private SpriteRenderer _sprite;
     private bool _flipped;
 
-    private void Awake()
+    private void Update()
     {
-        _sprite = GetComponent<SpriteRenderer>();
-    }
-
-    private void Update() {
         if(controller.Direction.x > 0) _flipped = false;
         if(controller.Direction.x < 0) _flipped = true;
+        UpdateTransform();
     }
-
-    void LateUpdate()
+    
+    void UpdateTransform()
     {
-        if(!_flipped){  
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x),transform.localScale.y,transform.localScale.z);
-            transform.localPosition = new Vector3(Mathf.Abs(transform.localPosition.x),transform.localPosition.y,transform.localPosition.z);
-        }
-        if(_flipped){
-            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x) * -1,transform.localScale.y,transform.localScale.z);
-            transform.localPosition = new Vector3(Mathf.Abs(transform.localPosition.x) * -1,transform.localPosition.y,transform.localPosition.z);
-        }
+        if(!_flipped)
+            entityParent.localScale = new Vector3(Mathf.Abs(entityParent.localScale.x),entityParent.localScale.y,entityParent.localScale.z);
+        else
+            entityParent.localScale = new Vector3(Mathf.Abs(entityParent.localScale.x) * -1,entityParent.localScale.y,entityParent.localScale.z);
     }
 }

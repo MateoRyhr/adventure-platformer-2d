@@ -46,9 +46,18 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""BasicAttack"",
+                    ""name"": ""MeleeComboAttack"",
                     ""type"": ""Button"",
                     ""id"": ""bcf659c6-ec02-4974-aedc-5c26cf3ee33e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ShortMagicAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""04b9ed62-64b5-44f4-bc4b-6f63a2d04696"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -59,6 +68,17 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""bc5159cf-4369-43cf-bd80-3d173ea13a73"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb525b2e-ecfa-4692-98f8-f97518ae789d"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -107,7 +127,18 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""BasicAttack"",
+                    ""action"": ""MeleeComboAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""69063800-c111-43e4-bb04-7a648700bf8a"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ShortMagicAttack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -120,7 +151,8 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         m_Normal = asset.FindActionMap("Normal", throwIfNotFound: true);
         m_Normal_Move = m_Normal.FindAction("Move", throwIfNotFound: true);
         m_Normal_Jump = m_Normal.FindAction("Jump", throwIfNotFound: true);
-        m_Normal_BasicAttack = m_Normal.FindAction("BasicAttack", throwIfNotFound: true);
+        m_Normal_MeleeComboAttack = m_Normal.FindAction("MeleeComboAttack", throwIfNotFound: true);
+        m_Normal_ShortMagicAttack = m_Normal.FindAction("ShortMagicAttack", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -182,14 +214,16 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     private INormalActions m_NormalActionsCallbackInterface;
     private readonly InputAction m_Normal_Move;
     private readonly InputAction m_Normal_Jump;
-    private readonly InputAction m_Normal_BasicAttack;
+    private readonly InputAction m_Normal_MeleeComboAttack;
+    private readonly InputAction m_Normal_ShortMagicAttack;
     public struct NormalActions
     {
         private @PlayerInputs m_Wrapper;
         public NormalActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Normal_Move;
         public InputAction @Jump => m_Wrapper.m_Normal_Jump;
-        public InputAction @BasicAttack => m_Wrapper.m_Normal_BasicAttack;
+        public InputAction @MeleeComboAttack => m_Wrapper.m_Normal_MeleeComboAttack;
+        public InputAction @ShortMagicAttack => m_Wrapper.m_Normal_ShortMagicAttack;
         public InputActionMap Get() { return m_Wrapper.m_Normal; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -205,9 +239,12 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_NormalActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_NormalActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_NormalActionsCallbackInterface.OnJump;
-                @BasicAttack.started -= m_Wrapper.m_NormalActionsCallbackInterface.OnBasicAttack;
-                @BasicAttack.performed -= m_Wrapper.m_NormalActionsCallbackInterface.OnBasicAttack;
-                @BasicAttack.canceled -= m_Wrapper.m_NormalActionsCallbackInterface.OnBasicAttack;
+                @MeleeComboAttack.started -= m_Wrapper.m_NormalActionsCallbackInterface.OnMeleeComboAttack;
+                @MeleeComboAttack.performed -= m_Wrapper.m_NormalActionsCallbackInterface.OnMeleeComboAttack;
+                @MeleeComboAttack.canceled -= m_Wrapper.m_NormalActionsCallbackInterface.OnMeleeComboAttack;
+                @ShortMagicAttack.started -= m_Wrapper.m_NormalActionsCallbackInterface.OnShortMagicAttack;
+                @ShortMagicAttack.performed -= m_Wrapper.m_NormalActionsCallbackInterface.OnShortMagicAttack;
+                @ShortMagicAttack.canceled -= m_Wrapper.m_NormalActionsCallbackInterface.OnShortMagicAttack;
             }
             m_Wrapper.m_NormalActionsCallbackInterface = instance;
             if (instance != null)
@@ -218,9 +255,12 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @BasicAttack.started += instance.OnBasicAttack;
-                @BasicAttack.performed += instance.OnBasicAttack;
-                @BasicAttack.canceled += instance.OnBasicAttack;
+                @MeleeComboAttack.started += instance.OnMeleeComboAttack;
+                @MeleeComboAttack.performed += instance.OnMeleeComboAttack;
+                @MeleeComboAttack.canceled += instance.OnMeleeComboAttack;
+                @ShortMagicAttack.started += instance.OnShortMagicAttack;
+                @ShortMagicAttack.performed += instance.OnShortMagicAttack;
+                @ShortMagicAttack.canceled += instance.OnShortMagicAttack;
             }
         }
     }
@@ -229,6 +269,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnBasicAttack(InputAction.CallbackContext context);
+        void OnMeleeComboAttack(InputAction.CallbackContext context);
+        void OnShortMagicAttack(InputAction.CallbackContext context);
     }
 }

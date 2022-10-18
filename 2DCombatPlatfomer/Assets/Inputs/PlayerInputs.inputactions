@@ -24,9 +24,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "BasicAttack",
+                    "name": "MeleeComboAttack",
                     "type": "Button",
                     "id": "bcf659c6-ec02-4974-aedc-5c26cf3ee33e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ShortMagicAttack",
+                    "type": "Button",
+                    "id": "04b9ed62-64b5-44f4-bc4b-6f63a2d04696",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -37,6 +46,17 @@
                 {
                     "name": "",
                     "id": "bc5159cf-4369-43cf-bd80-3d173ea13a73",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb525b2e-ecfa-4692-98f8-f97518ae789d",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
@@ -85,7 +105,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "BasicAttack",
+                    "action": "MeleeComboAttack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "69063800-c111-43e4-bb04-7a648700bf8a",
+                    "path": "<Keyboard>/l",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ShortMagicAttack",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

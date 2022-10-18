@@ -155,10 +155,10 @@ TextureImporter:
       name: WizardPlayerAttack2_3
       rect:
         serializedVersion: 2
-        x: 86
+        x: 783
         y: 49
-        width: 82
-        height: 79
+        width: 140
+        height: 105
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: WizardPlayerAttack2_4
       rect:
         serializedVersion: 2
-        x: 317
+        x: 1014
         y: 49
-        width: 79
-        height: 84
+        width: 140
+        height: 105
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -197,10 +197,10 @@ TextureImporter:
       name: WizardPlayerAttack2_5
       rect:
         serializedVersion: 2
-        x: 540
+        x: 1245
         y: 49
-        width: 76
-        height: 87
+        width: 140
+        height: 105
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -218,10 +218,10 @@ TextureImporter:
       name: WizardPlayerAttack2_6
       rect:
         serializedVersion: 2
-        x: 783
+        x: 1476
         y: 49
-        width: 81
-        height: 84
+        width: 140
+        height: 105
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -239,10 +239,10 @@ TextureImporter:
       name: WizardPlayerAttack2_7
       rect:
         serializedVersion: 2
-        x: 1014
+        x: 1707
         y: 49
-        width: 96
-        height: 88
+        width: 140
+        height: 105
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -257,52 +257,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizardPlayerAttack2_8
+      name: WizardPlayerAttack2_0
       rect:
         serializedVersion: 2
-        x: 1245
-        y: 49
-        width: 130
-        height: 86
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a9e194595f4bff748a5789595a044f46
-      internalID: 810679442
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WizardPlayerAttack2_9
-      rect:
-        serializedVersion: 2
-        x: 1476
-        y: 49
-        width: 134
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8aa3ea427d49c804ca7994897a1184bf
-      internalID: 1283116244
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: WizardPlayerAttack2_11
-      rect:
-        serializedVersion: 2
-        x: 1707
+        x: 86
         y: 49
         width: 140
         height: 105
@@ -313,14 +271,56 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 19338fb920407114388f82d7f9c1cdab
-      internalID: -1576224625
+      spriteID: 2db9da9bacf4ded4eb29f4b25de64e16
+      internalID: -2130149315
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: WizardPlayerAttack2_0
+      name: WizardPlayerAttack2_1
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 49
+        width: 140
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db0c2ba78fd9f324ba591e57eaaaf17f
+      internalID: -1394853438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WizardPlayerAttack2_2
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 49
+        width: 140
+        height: 105
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a847947978754a4eb15e4b76c56b16d
+      internalID: -329746265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: WizardPlayerAttack2_8
       rect:
         serializedVersion: 2
         x: 1707
@@ -328,14 +328,14 @@ TextureImporter:
         width: 74
         height: 91
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2db9da9bacf4ded4eb29f4b25de64e16
-      internalID: -2130149315
+      spriteID: bae70ba64ee08e045ac7b71f1a7949de
+      internalID: 810679442
       vertices: []
       indices: 
       edges: []
@@ -351,30 +351,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      WizardPlayerAttack2_19: -438282400
       WizardPlayerAttack2_7: 1318397538
-      WizardPlayerAttack2_21: 1316689547
       WizardPlayerAttack2_5: 1978866418
-      WizardPlayerAttack2_10: 768095978
-      WizardPlayerAttack2_15: 1943190507
-      WizardPlayerAttack2_13: -1886939792
-      WizardPlayerAttack2_23: 353479516
       WizardPlayerAttack2_6: 46402770
-      WizardPlayerAttack2_9: 1283116244
       WizardPlayerAttack2_4: -924818884
       WizardPlayerAttack2_1: -1394853438
       WizardPlayerAttack2_3: -1651548852
-      WizardPlayerAttack2_20: 1078776582
-      WizardPlayerAttack2_11: -1576224625
-      WizardPlayerAttack2_12: -2019008619
-      WizardPlayerAttack2_14: -539362520
       WizardPlayerAttack2_0: -2130149315
-      WizardPlayerAttack2_18: 992692717
-      WizardPlayerAttack2_22: -1994291405
-      WizardPlayerAttack2_16: -857364249
       WizardPlayerAttack2_2: -329746265
       WizardPlayerAttack2_8: 810679442
-      WizardPlayerAttack2_17: -1098593906
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

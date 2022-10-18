@@ -10,6 +10,8 @@ public class EntityStatus2D : MonoBehaviour
     // public UnityEvent OnAir;
     
     public bool IsBeingAffectedByAnExternalForce { get; set; }
+    public bool IsAttacking { get; set; }
+    public bool IsMoving { get; set; }
 
     private BoxCollider2D _collider;
     private float _width;
@@ -27,6 +29,10 @@ public class EntityStatus2D : MonoBehaviour
         bool leftFootCheck = RaycastEnhanced.Raycast(leftSidePosition,Vector2.down,rayLength,groundLayer.value,true);
         bool rightFootCheck = RaycastEnhanced.Raycast(rightSidePosition,Vector2.down,rayLength,groundLayer.value,true);
         return leftFootCheck || rightFootCheck;
+    }
+
+    public bool CanMove(){
+        return !IsAttacking && !IsBeingAffectedByAnExternalForce;
     }
 
     public void ApplyForce(float time){

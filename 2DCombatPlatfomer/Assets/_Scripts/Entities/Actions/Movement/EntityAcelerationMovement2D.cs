@@ -19,13 +19,26 @@ public class EntityAcelerationMovement2D : EntityMovement
 
     private void FixedUpdate()
     {
-        if(control.Direction != Vector2.zero) Move();
-        else _timeAccelerating = 0f;
-        if(entityStatus.IsOnGround() && !entityStatus.IsBeingAffectedByAnExternalForce) Stop();            
+        if(entityStatus.IsAttacking){
+            Stop();
+        }
+        if(control.Direction != Vector2.zero){
+            if(entityStatus.CanMove()){
+                Move();
+                entityStatus.IsMoving = true;
+            }
+        }
+        else {
+            if(!entityStatus.IsBeingAffectedByAnExternalForce){
+                entityStatus.IsMoving = false;   
+                Stop();
+            }
+        }
     }
 
     public override void Move()
     {
+        _timeSlowingDown = 0f;
         Vector2 newVelocity = Vector2.Lerp(
             Vector2.zero,
             control.Direction.normalized * maxSpeed.Value,
@@ -37,14 +50,14 @@ public class EntityAcelerationMovement2D : EntityMovement
     }
 
     public override void Stop(){
+        _timeAccelerating = 0f;
         Vector2 newVelocity = Vector2.Lerp(
             rigidBody.velocity,
             Vector2.zero,
             acelerationCurve.Evaluate(_timeSlowingDown / timeToSlowDown.Value)
         );
         rigidBody.velocity = rigidBody.velocity = new Vector2(newVelocity.x,rigidBody.velocity.y);
-        if(control.Direction != Vector2.zero) _timeSlowingDown = 0f;
-        else _timeSlowingDown += Time.fixedDeltaTime;
+        _timeSlowingDown += Time.fixedDeltaTime;
         if(_timeSlowingDown > timeToSlowDown.Value) _timeSlowingDown = timeToSlowDown.Value;
     }
 }
