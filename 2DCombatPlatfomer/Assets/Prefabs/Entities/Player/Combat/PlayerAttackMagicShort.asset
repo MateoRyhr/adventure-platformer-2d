@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PlayerAttackMagicShort
   m_EditorClassIdentifier: 
   Damage: 10
-  Range: 3
+  Range: 3.3
   AnimationTime: 0.75
   TimeUntilAttackDone: 0.3125
