@@ -24,7 +24,8 @@ public class EntityHealth : DamageTaker
     {
         if(_canTakeDamage){
             _canTakeDamage = false;
-            damageEffectPosition.position = contactPoint;
+            if(damageEffectPosition)
+                damageEffectPosition.position = contactPoint;
             OnDamage?.Invoke();
             _health -= damage;
             if(_health <= 0) OnDestruction?.Invoke();

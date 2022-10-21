@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -14,7 +15,7 @@ TagManager:
   - Ground
   - Enemy
   - DestructibleObject
-  - 
+  - Corpse
   - 
   - 
   - 
@@ -38,11 +39,17 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
+  - name: BackgroundSky
+    uniqueID: 3840232791
+    locked: 0
+  - name: Background1
     uniqueID: 1188243011
     locked: 0
-  - name: BackgroundDetails
+  - name: Background2
     uniqueID: 3087208395
+    locked: 0
+  - name: Background3
+    uniqueID: 300541081
     locked: 0
   - name: Default
     uniqueID: 0
