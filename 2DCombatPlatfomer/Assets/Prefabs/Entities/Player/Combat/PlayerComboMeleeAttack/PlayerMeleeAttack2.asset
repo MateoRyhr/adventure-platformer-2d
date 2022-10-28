@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c9d8dc5ab832f6478d8d48c2d36c263, type: 3}
   m_Name: PlayerMeleeAttack2
   m_EditorClassIdentifier: 
-  Damage: 10
+  Damage: 5
   Range: 2
   AnimationTime: 0.5
   TimeUntilAttackDone: 0.25
