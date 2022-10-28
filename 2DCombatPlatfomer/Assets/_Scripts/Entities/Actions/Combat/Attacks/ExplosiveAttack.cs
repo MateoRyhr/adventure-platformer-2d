@@ -21,7 +21,9 @@ public class ExplosiveAttack : Attack
                     Vector2 closestPoint = objectImpacted.ClosestPoint(explosionPoint.position);
                     SetEffects(closestPoint);
                     if(targetRigidbody && forceApplier){
+                        EntityStatus2D targetStatus = objectImpacted.GetComponent<EntityStatus2D>();
                         ApplyForce(targetRigidbody,closestPoint);
+                        if(targetStatus) targetStatus.ApplyForce();
                     }
                     if(damageTaker){
                         damageTaker.TakeDamage(attackData.Damage,closestPoint);

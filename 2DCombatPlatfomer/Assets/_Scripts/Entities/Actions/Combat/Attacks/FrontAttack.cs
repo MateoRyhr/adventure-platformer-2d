@@ -24,7 +24,9 @@ public class FrontAttack : Attack
                     Vector2 closestPoint = objectImpacted.ClosestPoint(attackPoint.position);
                     SetEffects(closestPoint);
                     if(targetRigidbody && forceApplier){
+                        EntityStatus2D targetStatus = objectImpacted.GetComponent<EntityStatus2D>();
                         ApplyForce(targetRigidbody,closestPoint);
+                        if(targetStatus) targetStatus.ApplyForce();
                     }
                     if(damageTaker){
                         damageTaker.TakeDamage(attackData.Damage,closestPoint);
@@ -50,6 +52,7 @@ public class FrontAttack : Attack
 
     void ApplyForce(Rigidbody2D targetRigidbody, Vector2 closestPoint){
         Vector2 direction = new Vector2(forceApplier.ForceDirection.x * attackerCollider.transform.localScale.x,forceApplier.ForceDirection.y);
+        Debug.Log("Force: " + direction.x + " " + direction.y );
         forceApplier.ApplyForce(targetRigidbody,direction);
     }
 

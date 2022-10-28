@@ -19,6 +19,7 @@ public class EntityAcelerationMovement2D : EntityMovement
 
     private void FixedUpdate()
     {
+        if(entityStatus.IsBeingAffectedByAnExternalForce) return;
         if(entityStatus.IsAttacking){
             Stop();
         }
@@ -28,11 +29,9 @@ public class EntityAcelerationMovement2D : EntityMovement
                 entityStatus.IsMoving = true;
             }
         }
-        else {
-            if(!entityStatus.IsBeingAffectedByAnExternalForce){
-                entityStatus.IsMoving = false;   
-                Stop();
-            }
+        else{
+            entityStatus.IsMoving = false;   
+            Stop();
         }
     }
 

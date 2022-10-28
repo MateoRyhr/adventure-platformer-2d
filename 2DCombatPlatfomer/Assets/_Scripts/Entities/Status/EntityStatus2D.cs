@@ -14,11 +14,13 @@ public class EntityStatus2D : MonoBehaviour
     public bool IsMoving { get; set; }
 
     private BoxCollider2D _collider;
+    private Rigidbody2D _rb;
     private float _width;
 
     private void Awake()
     {
         _collider = GetComponent<BoxCollider2D>();
+        _rb = GetComponent<Rigidbody2D>();
         _width = _collider.size.x;
     }
 
@@ -35,8 +37,8 @@ public class EntityStatus2D : MonoBehaviour
         return !IsAttacking && !IsBeingAffectedByAnExternalForce;
     }
 
-    public void ApplyForce(float time){
+    public void ApplyForce(){
         IsBeingAffectedByAnExternalForce = true;
-        this.Invoke(() => IsBeingAffectedByAnExternalForce = false, time);
+        this.Invoke(() => IsBeingAffectedByAnExternalForce = false,0.5f);
     }
 }

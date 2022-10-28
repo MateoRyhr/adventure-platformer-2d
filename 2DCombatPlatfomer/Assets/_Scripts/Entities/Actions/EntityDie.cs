@@ -1,13 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EntityDie : MonoBehaviour
 {
-    [SerializeField] EntityStatus2D entityStatus;
+    [SerializeField] private EntityStatus2D _entityStatus;
+    [SerializeField] private GameObject _actions;
     [SerializeField] private int CorpseMask;
 
+    public UnityEvent OnDie;
+
     public void Die(){
-        entityStatus.gameObject.layer = CorpseMask;
+        _entityStatus.gameObject.layer = CorpseMask;
+        _actions.SetActive(false);
+        OnDie?.Invoke();
     }
 }
