@@ -8,7 +8,9 @@ public class MeleeEnemyAI : MonoBehaviour
     [SerializeField] private BoxCollider2D _collider;
     [SerializeField] private EntityMovementController2D _movementControl;
     [SerializeField] private AIEntityData2D _aiData;
+    [SerializeField] private EntityHealth _entityHealth;
     [SerializeField] private bool _onStartStayIdle;
+    [SerializeField] private bool _lookAtDamageSourceOnDamage;
 
     [SerializeField] private float _minActionTime;
     [SerializeField] private float _maxActionTime;
@@ -30,8 +32,17 @@ public class MeleeEnemyAI : MonoBehaviour
         At(meleeCombat,randomPatrolling, () => !_aiData.HasATarget);
         _stateMachine.AddAnyTransition(meleeCombat,() => _aiData.Sight.EnemyInSight);
 
+        if(_entityHealth && _lookAtDamageSourceOnDamage) _entityHealth.OnDamage.AddListener(LookAtDamageSource);
+
         _stateMachine.SetState(idle);
 
+    }
+
+    void LookAtDamageSource(){
+        _movementControl.Direction = 
+            _entityHealth.DamagePoint.x - _collider.transform.position.x < 0f
+            ? Vector2.left
+            : Vector2.right;
     }
 
     void Update() => _stateMachine.Tick();

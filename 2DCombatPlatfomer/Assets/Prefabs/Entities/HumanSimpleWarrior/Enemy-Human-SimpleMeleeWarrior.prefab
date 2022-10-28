@@ -1119,10 +1119,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2852446c9e4ffac4cb1e64ccdd961a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: {fileID: 11400000, guid: 76a6687e13128a34faff473a3c16d648, type: 2}
-  hasStartingHealth: 0
-  startingHealth: 0
-  damageEffectPosition: {fileID: 0}
+  _collider: {fileID: 6105215652076644868}
+  _maxHealth: {fileID: 11400000, guid: 76a6687e13128a34faff473a3c16d648, type: 2}
+  _hasStartingHealth: 0
+  _startingHealth: 0
+  _lookAtDamageSourceOnDamage: 1
+  _damageEffectPosition: {fileID: 0}
   _healthBar: {fileID: 5935456778861449228}
   OnDamage:
     m_PersistentCalls:
@@ -1236,7 +1238,9 @@ MonoBehaviour:
   _collider: {fileID: 6105215652076644868}
   _movementControl: {fileID: 3415838705811311241}
   _aiData: {fileID: 8453035670733353001}
+  _entityHealth: {fileID: 6105215652076644871}
   _onStartStayIdle: 0
+  _lookAtDamageSourceOnDamage: 1
   _minActionTime: 2
   _maxActionTime: 3
   _attack: {fileID: 3879152167675534833}

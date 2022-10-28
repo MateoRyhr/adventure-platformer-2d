@@ -1027,10 +1027,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2852446c9e4ffac4cb1e64ccdd961a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: {fileID: 11400000, guid: 3d745eb2f65a77d42ba54557af7d3873, type: 2}
-  hasStartingHealth: 0
-  startingHealth: 0
-  damageEffectPosition: {fileID: 0}
+  _collider: {fileID: 3828110810931657558}
+  _maxHealth: {fileID: 11400000, guid: 3d745eb2f65a77d42ba54557af7d3873, type: 2}
+  _hasStartingHealth: 0
+  _startingHealth: 0
+  _lookAtDamageSourceOnDamage: 0
+  _damageEffectPosition: {fileID: 0}
+  _healthBar: {fileID: 0}
   OnDamage:
     m_PersistentCalls:
       m_Calls:
@@ -2696,8 +2699,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _entityStatus: {fileID: 3828110810931657553}
+  _collider: {fileID: 0}
   _actions: {fileID: 3828110812286465540}
-  CorpseMask: 9
+  _corpseMask: 0
+  corpsePhysicMaterial: {fileID: 0}
   OnDie:
     m_PersistentCalls:
       m_Calls: []
