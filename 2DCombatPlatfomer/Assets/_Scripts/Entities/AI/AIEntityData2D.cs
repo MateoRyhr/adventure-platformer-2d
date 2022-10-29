@@ -31,7 +31,11 @@ public class AIEntityData2D : MonoBehaviour
 
     public bool IsWallInFront(out RaycastHit2D hit) => hit = Physics2D.Raycast(FowardPointOnTheFloor(),Vector2.right * _collider.transform.lossyScale.x,0.1f,_groundLayer);
 
-    public bool CanJumpOverTheForwardObject() => !Physics2D.BoxCast(CenterOfBodyIfJump(),_collider.size,0,Vector2.up,0,_groundLayer);
+    public bool IsGroundInMaxPointReachedOnJump() => Physics2D.Raycast(new Vector2(_collider.transform.position.x,MaxPointReachedOnJump().y),Vector2.right * _collider.transform.localScale.x,_collider.size.x,_groundLayer);
+
+    public bool CanJumpOverTheForwardObject() =>
+        !Physics2D.BoxCast(CenterOfBodyIfJump(),_collider.size,0,Vector2.up,0,_groundLayer) &&
+        !IsGroundInMaxPointReachedOnJump();
 
     private Vector2 FowardPointOnTheFloor(){
         return new Vector2(
@@ -57,19 +61,20 @@ public class AIEntityData2D : MonoBehaviour
         );
     }
 
-    private void OnDrawGizmos() {
-        RaycastHit2D hit;
-        //Draw ground check
-        Gizmos.color = IsGroundInFront(out hit) ? Color.green : Color.red;
-        Gizmos.DrawLine(FowardPointOnTheFloor(),FowardPointOnTheFloor() + Vector2.down * _aSmallAmountBigger);
-        //Draw ground to fall check
-        Gizmos.color = IsGroundInFrontToFall(out hit) ? Color.yellow : Color.magenta;
-        Gizmos.DrawLine(FowardPointOnTheFloor(),hit.point);
-        //Draw Jump check
-        Gizmos.DrawSphere(MaxPointReachedOnJump(),.1f);
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawLine(MaxPointReachedOnJump(),PointToJumpOver());
-        Gizmos.color = CanJumpOverTheForwardObject() ? Color.green : Color.red;
-        Gizmos.DrawWireCube(CenterOfBodyIfJump(),_collider.size);
-    }
+    // private void OnDrawGizmos() {
+    //     RaycastHit2D hit;
+    //     //Draw ground check
+    //     Gizmos.color = IsGroundInFront(out hit) ? Color.green : Color.red;
+    //     Gizmos.DrawLine(FowardPointOnTheFloor(),FowardPointOnTheFloor() + Vector2.down * _aSmallAmountBigger);
+    //     //Draw ground to fall check
+    //     Gizmos.color = IsGroundInFrontToFall(out hit) ? Color.yellow : Color.magenta;
+    //     Gizmos.DrawLine(FowardPointOnTheFloor(),hit.point);
+    //     //Draw Jump check
+    //     Gizmos.DrawSphere(new Vector2(_collider.transform.position.x,MaxPointReachedOnJump().y),.05f);
+    //     Gizmos.DrawSphere(MaxPointReachedOnJump(),.1f);
+    //     Gizmos.color = Color.cyan;
+    //     Gizmos.DrawLine(MaxPointReachedOnJump(),PointToJumpOver());
+    //     Gizmos.color = CanJumpOverTheForwardObject() ? Color.green : Color.red;
+    //     Gizmos.DrawWireCube(CenterOfBodyIfJump(),_collider.size);
+    // }
 }
