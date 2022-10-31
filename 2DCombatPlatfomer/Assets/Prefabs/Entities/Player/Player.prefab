@@ -647,6 +647,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackData: {fileID: 11400000, guid: 9ab84cfb3fde8d74fb8ac1702c2e348a, type: 2}
   entityStatus: {fileID: 3828110810931657553}
+  animator: {fileID: 3828110810940003402}
+  _attackAnimationName: meleeCombo
   attackStatus: 0
   nextEvent: 0
   fxsOnImpact:
@@ -655,18 +657,6 @@ MonoBehaviour:
   OnAttackStarted:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3828110810940003402}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: meleeCombo
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 5795064158403070848}
         m_TargetAssemblyTypeName: SoundInstantiator, Assembly-CSharp
         m_MethodName: PlayAudioEvent
@@ -1568,25 +1558,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackData: {fileID: 11400000, guid: 1f85e297125495944bcfc599ce112554, type: 2}
   entityStatus: {fileID: 3828110810931657553}
+  animator: {fileID: 3828110810940003402}
+  _attackAnimationName: magicMelee
   attackStatus: 0
   nextEvent: 0
   fxsOnImpact:
   - {fileID: 3828110810982232097}
   OnAttackStarted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3828110810940003402}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: magicMelee
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnAttackPerformed:
     m_PersistentCalls:
       m_Calls:
@@ -1754,6 +1734,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackData: {fileID: 11400000, guid: 1d382d9f0e27aa74fa6156ba956fd9d5, type: 2}
   entityStatus: {fileID: 3828110810931657553}
+  animator: {fileID: 3828110810940003402}
+  _attackAnimationName: meleeCombo
   attackStatus: 0
   nextEvent: 0
   fxsOnImpact:
@@ -1761,19 +1743,7 @@ MonoBehaviour:
   - {fileID: 3828110811987627915}
   OnAttackStarted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3828110810940003402}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: meleeCombo
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnAttackPerformed:
     m_PersistentCalls:
       m_Calls:
@@ -1944,6 +1914,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackData: {fileID: 11400000, guid: ccff93dcaf034844bb4b5b9add07116c, type: 2}
   entityStatus: {fileID: 3828110810931657553}
+  animator: {fileID: 3828110810940003402}
+  _attackAnimationName: meleeCombo
   attackStatus: 0
   nextEvent: 0
   fxsOnImpact:
@@ -1951,19 +1923,7 @@ MonoBehaviour:
   - {fileID: 3828110811987627915}
   OnAttackStarted:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3828110810940003402}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: meleeCombo
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   OnAttackPerformed:
     m_PersistentCalls:
       m_Calls:

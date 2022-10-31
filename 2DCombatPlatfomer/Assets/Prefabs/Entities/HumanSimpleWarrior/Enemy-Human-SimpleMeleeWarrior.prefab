@@ -1501,6 +1501,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackData: {fileID: 11400000, guid: a03e1b08c04a911408b54cadfb40b137, type: 2}
   entityStatus: {fileID: 6105215652076644869}
+  animator: {fileID: 6105215651454949882}
+  _attackAnimationName: attack
   attackStatus: 0
   nextEvent: 0
   fxsOnImpact:
@@ -1508,18 +1510,6 @@ MonoBehaviour:
   OnAttackStarted:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6105215651454949882}
-        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
-        m_MethodName: SetTrigger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: attack
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 2970042366939304522}
         m_TargetAssemblyTypeName: SoundInstantiator, Assembly-CSharp
         m_MethodName: PlayAudioEvent

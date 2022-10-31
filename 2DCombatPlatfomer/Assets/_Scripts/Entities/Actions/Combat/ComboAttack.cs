@@ -41,8 +41,8 @@ public class ComboAttack : MonoBehaviour
     }
 
     void StartAttack(int attack){
-        attacks[attack].StartAttack();
         attacks[attack].OnAttackFinished.AddListener(FinishCombo);
+        attacks[attack].StartAttack();
     }
 
     void FinishCombo(){

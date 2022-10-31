@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Damage: 15
   Range: 2
-  AnimationTime: 0.688
+  AnimationTime: 0.6875
   TimeUntilAttackDone: 0.375

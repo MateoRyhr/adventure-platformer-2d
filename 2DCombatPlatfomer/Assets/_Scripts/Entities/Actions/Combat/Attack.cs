@@ -18,6 +18,9 @@ public abstract class Attack : MonoBehaviour
 {
     public AttackData attackData;
     public EntityStatus2D entityStatus;
+    public Animator animator;
+    [Tooltip("The name of the trigger that start the attack animation")]
+    public string _attackAnimationName;
     [HideInInspector] public AttackStatus attackStatus = AttackStatus.notStarted;
     [HideInInspector] public AttackNextEvent nextEvent = AttackNextEvent.finish;
     [Header("Optional")]
@@ -36,9 +39,12 @@ public abstract class Attack : MonoBehaviour
 
     public void StartAttack(){
         if(CanAttack()){
+
             entityStatus.IsAttacking = true;
             nextEvent = AttackNextEvent.finish;
             attackStatus = AttackStatus.started;
+
+            PlayAttackAnimation();
             OnAttackStarted?.Invoke();
 
             this.Invoke( () => {
@@ -67,6 +73,10 @@ public abstract class Attack : MonoBehaviour
         nextEvent = AttackNextEvent.finish;
         CancelInvoke();
         FinishAttack();
+    }
+
+    void PlayAttackAnimation(){
+        animator.SetTrigger(_attackAnimationName);
     }
 
     public abstract void PerformAttack();
