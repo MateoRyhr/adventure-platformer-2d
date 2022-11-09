@@ -28,10 +28,10 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
             ""id"": ""777f378e-2bed-4c7b-9c95-03f04a4057ee"",
             ""actions"": [
                 {
-                    ""name"": ""Move"",
+                    ""name"": ""MoveDirection"",
                     ""type"": ""Value"",
                     ""id"": ""08db8621-5012-4211-b3b9-b9bb3d336324"",
-                    ""expectedControlType"": ""Integer"",
+                    ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
@@ -55,27 +55,34 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ShortMagicAttack"",
+                    ""name"": ""Magic1"",
                     ""type"": ""Button"",
                     ""id"": ""04b9ed62-64b5-44f4-bc4b-6f63a2d04696"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""91fced20-dfb1-4c6b-bbcd-562935523b41"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""AxisY"",
+                    ""type"": ""Value"",
+                    ""id"": ""8ec8e925-0430-4836-a0d8-ea26c9105453"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""bc5159cf-4369-43cf-bd80-3d173ea13a73"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Jump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
                 {
                     ""name"": """",
                     ""id"": ""fb525b2e-ecfa-4692-98f8-f97518ae789d"",
@@ -94,7 +101,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""MoveDirection"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -105,7 +112,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""MoveDirection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -116,7 +123,7 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Move"",
+                    ""action"": ""MoveDirection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -138,9 +145,53 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ShortMagicAttack"",
+                    ""action"": ""Magic1"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""915da9fa-9cd7-434b-9cc3-5a39ca0d8c3b"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""49ad1bb3-ddd5-4443-9d3f-cfcf08190870"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AxisY"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""2d07090c-ccd8-4dea-b526-705a9fa2af0f"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AxisY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""8bb9a1c3-6c25-4b54-a8cb-450c26482351"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AxisY"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -149,10 +200,12 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
 }");
         // Normal
         m_Normal = asset.FindActionMap("Normal", throwIfNotFound: true);
-        m_Normal_Move = m_Normal.FindAction("Move", throwIfNotFound: true);
+        m_Normal_MoveDirection = m_Normal.FindAction("MoveDirection", throwIfNotFound: true);
         m_Normal_Jump = m_Normal.FindAction("Jump", throwIfNotFound: true);
         m_Normal_MeleeComboAttack = m_Normal.FindAction("MeleeComboAttack", throwIfNotFound: true);
-        m_Normal_ShortMagicAttack = m_Normal.FindAction("ShortMagicAttack", throwIfNotFound: true);
+        m_Normal_Magic1 = m_Normal.FindAction("Magic1", throwIfNotFound: true);
+        m_Normal_Dash = m_Normal.FindAction("Dash", throwIfNotFound: true);
+        m_Normal_AxisY = m_Normal.FindAction("AxisY", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -212,18 +265,22 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
     // Normal
     private readonly InputActionMap m_Normal;
     private INormalActions m_NormalActionsCallbackInterface;
-    private readonly InputAction m_Normal_Move;
+    private readonly InputAction m_Normal_MoveDirection;
     private readonly InputAction m_Normal_Jump;
     private readonly InputAction m_Normal_MeleeComboAttack;
-    private readonly InputAction m_Normal_ShortMagicAttack;
+    private readonly InputAction m_Normal_Magic1;
+    private readonly InputAction m_Normal_Dash;
+    private readonly InputAction m_Normal_AxisY;
     public struct NormalActions
     {
         private @PlayerInputs m_Wrapper;
         public NormalActions(@PlayerInputs wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Normal_Move;
+        public InputAction @MoveDirection => m_Wrapper.m_Normal_MoveDirection;
         public InputAction @Jump => m_Wrapper.m_Normal_Jump;
         public InputAction @MeleeComboAttack => m_Wrapper.m_Normal_MeleeComboAttack;
-        public InputAction @ShortMagicAttack => m_Wrapper.m_Normal_ShortMagicAttack;
+        public InputAction @Magic1 => m_Wrapper.m_Normal_Magic1;
+        public InputAction @Dash => m_Wrapper.m_Normal_Dash;
+        public InputAction @AxisY => m_Wrapper.m_Normal_AxisY;
         public InputActionMap Get() { return m_Wrapper.m_Normal; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -233,43 +290,57 @@ public partial class @PlayerInputs : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_NormalActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_NormalActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_NormalActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_NormalActionsCallbackInterface.OnMove;
+                @MoveDirection.started -= m_Wrapper.m_NormalActionsCallbackInterface.OnMoveDirection;
+                @MoveDirection.performed -= m_Wrapper.m_NormalActionsCallbackInterface.OnMoveDirection;
+                @MoveDirection.canceled -= m_Wrapper.m_NormalActionsCallbackInterface.OnMoveDirection;
                 @Jump.started -= m_Wrapper.m_NormalActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_NormalActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_NormalActionsCallbackInterface.OnJump;
                 @MeleeComboAttack.started -= m_Wrapper.m_NormalActionsCallbackInterface.OnMeleeComboAttack;
                 @MeleeComboAttack.performed -= m_Wrapper.m_NormalActionsCallbackInterface.OnMeleeComboAttack;
                 @MeleeComboAttack.canceled -= m_Wrapper.m_NormalActionsCallbackInterface.OnMeleeComboAttack;
-                @ShortMagicAttack.started -= m_Wrapper.m_NormalActionsCallbackInterface.OnShortMagicAttack;
-                @ShortMagicAttack.performed -= m_Wrapper.m_NormalActionsCallbackInterface.OnShortMagicAttack;
-                @ShortMagicAttack.canceled -= m_Wrapper.m_NormalActionsCallbackInterface.OnShortMagicAttack;
+                @Magic1.started -= m_Wrapper.m_NormalActionsCallbackInterface.OnMagic1;
+                @Magic1.performed -= m_Wrapper.m_NormalActionsCallbackInterface.OnMagic1;
+                @Magic1.canceled -= m_Wrapper.m_NormalActionsCallbackInterface.OnMagic1;
+                @Dash.started -= m_Wrapper.m_NormalActionsCallbackInterface.OnDash;
+                @Dash.performed -= m_Wrapper.m_NormalActionsCallbackInterface.OnDash;
+                @Dash.canceled -= m_Wrapper.m_NormalActionsCallbackInterface.OnDash;
+                @AxisY.started -= m_Wrapper.m_NormalActionsCallbackInterface.OnAxisY;
+                @AxisY.performed -= m_Wrapper.m_NormalActionsCallbackInterface.OnAxisY;
+                @AxisY.canceled -= m_Wrapper.m_NormalActionsCallbackInterface.OnAxisY;
             }
             m_Wrapper.m_NormalActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Move.started += instance.OnMove;
-                @Move.performed += instance.OnMove;
-                @Move.canceled += instance.OnMove;
+                @MoveDirection.started += instance.OnMoveDirection;
+                @MoveDirection.performed += instance.OnMoveDirection;
+                @MoveDirection.canceled += instance.OnMoveDirection;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
                 @MeleeComboAttack.started += instance.OnMeleeComboAttack;
                 @MeleeComboAttack.performed += instance.OnMeleeComboAttack;
                 @MeleeComboAttack.canceled += instance.OnMeleeComboAttack;
-                @ShortMagicAttack.started += instance.OnShortMagicAttack;
-                @ShortMagicAttack.performed += instance.OnShortMagicAttack;
-                @ShortMagicAttack.canceled += instance.OnShortMagicAttack;
+                @Magic1.started += instance.OnMagic1;
+                @Magic1.performed += instance.OnMagic1;
+                @Magic1.canceled += instance.OnMagic1;
+                @Dash.started += instance.OnDash;
+                @Dash.performed += instance.OnDash;
+                @Dash.canceled += instance.OnDash;
+                @AxisY.started += instance.OnAxisY;
+                @AxisY.performed += instance.OnAxisY;
+                @AxisY.canceled += instance.OnAxisY;
             }
         }
     }
     public NormalActions @Normal => new NormalActions(this);
     public interface INormalActions
     {
-        void OnMove(InputAction.CallbackContext context);
+        void OnMoveDirection(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnMeleeComboAttack(InputAction.CallbackContext context);
-        void OnShortMagicAttack(InputAction.CallbackContext context);
+        void OnMagic1(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
+        void OnAxisY(InputAction.CallbackContext context);
     }
 }

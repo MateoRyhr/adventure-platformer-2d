@@ -16,7 +16,7 @@ public class ExplosiveAttack : Attack
             foreach (int layer in damageableLayers)
             {
                 if(objectImpacted.gameObject.layer == layer){
-                    DamageTaker damageTaker = objectImpacted.GetComponent<DamageTaker>();
+                    IDamageTaker damageTaker = objectImpacted.GetComponentInChildren<IDamageTaker>();
                     Rigidbody2D targetRigidbody = objectImpacted.GetComponent<Rigidbody2D>();
                     Vector2 closestPoint = objectImpacted.ClosestPoint(explosionPoint.position);
                     SetEffects(closestPoint);
@@ -25,7 +25,7 @@ public class ExplosiveAttack : Attack
                         ApplyForce(targetRigidbody,closestPoint);
                         if(targetStatus) targetStatus.ApplyForce();
                     }
-                    if(damageTaker){
+                    if(damageTaker != null){
                         damageTaker.TakeDamage(attackData.Damage,closestPoint);
                     }
                     OnAttackConnected?.Invoke();

@@ -893,13 +893,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2852446c9e4ffac4cb1e64ccdd961a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxValue: {fileID: 11400000, guid: 76a6687e13128a34faff473a3c16d648, type: 2}
+  _hasAStartingValue: 0
+  _startingValue: 0
+  OnAddToTheAmount:
+    m_PersistentCalls:
+      m_Calls: []
+  OnSubstractToTheAmount:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6105215651454949882}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: SetTrigger
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: getDamage
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3879152167675534833}
+        m_TargetAssemblyTypeName: Attack, Assembly-CSharp
+        m_MethodName: CancelAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnAmountModified:
+    m_PersistentCalls:
+      m_Calls: []
+  Bar: {fileID: 5935456778861449228}
   _collider: {fileID: 6105215652076644868}
-  _maxHealth: {fileID: 11400000, guid: 76a6687e13128a34faff473a3c16d648, type: 2}
-  _hasStartingHealth: 0
-  _startingHealth: 0
-  _lookAtDamageSourceOnDamage: 1
   _damageEffectPosition: {fileID: 0}
-  _healthBar: {fileID: 5935456778861449228}
   OnDamage:
     m_PersistentCalls:
       m_Calls:

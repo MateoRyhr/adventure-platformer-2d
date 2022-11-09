@@ -61,7 +61,7 @@ public class AIEntityData2D : MonoBehaviour
         );
     }
 
-    // private void OnDrawGizmos() {
+    // private void OnDrawGizmosSelected() {
     //     RaycastHit2D hit;
     //     //Draw ground check
     //     Gizmos.color = IsGroundInFront(out hit) ? Color.green : Color.red;

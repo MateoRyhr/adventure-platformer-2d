@@ -12,6 +12,7 @@ public class EntityAirJumpImpulse2D : EntityJumpImpulse2D
     public override void PerformJump()
     {
         _jumpIsActive = false;
+        rigidBody.velocity = new Vector2(rigidBody.velocity.x,0f);
         rigidBody.AddForce(rigidBody.transform.up * JumpForce.Value,ForceMode2D.Impulse);
     }
 

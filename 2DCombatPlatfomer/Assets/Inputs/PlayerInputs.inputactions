@@ -6,10 +6,10 @@
             "id": "777f378e-2bed-4c7b-9c95-03f04a4057ee",
             "actions": [
                 {
-                    "name": "Move",
+                    "name": "MoveDirection",
                     "type": "Value",
                     "id": "08db8621-5012-4211-b3b9-b9bb3d336324",
-                    "expectedControlType": "Integer",
+                    "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
@@ -33,27 +33,34 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ShortMagicAttack",
+                    "name": "Magic1",
                     "type": "Button",
                     "id": "04b9ed62-64b5-44f4-bc4b-6f63a2d04696",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Dash",
+                    "type": "Button",
+                    "id": "91fced20-dfb1-4c6b-bbcd-562935523b41",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "AxisY",
+                    "type": "Value",
+                    "id": "8ec8e925-0430-4836-a0d8-ea26c9105453",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
-                {
-                    "name": "",
-                    "id": "bc5159cf-4369-43cf-bd80-3d173ea13a73",
-                    "path": "<Keyboard>/w",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
                 {
                     "name": "",
                     "id": "fb525b2e-ecfa-4692-98f8-f97518ae789d",
@@ -72,7 +79,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "MoveDirection",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -83,7 +90,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "MoveDirection",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -94,7 +101,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Move",
+                    "action": "MoveDirection",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -116,9 +123,53 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ShortMagicAttack",
+                    "action": "Magic1",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "915da9fa-9cd7-434b-9cc3-5a39ca0d8c3b",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Dash",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "1D Axis",
+                    "id": "49ad1bb3-ddd5-4443-9d3f-cfcf08190870",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AxisY",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "2d07090c-ccd8-4dea-b526-705a9fa2af0f",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AxisY",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "8bb9a1c3-6c25-4b54-a8cb-450c26482351",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AxisY",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         }

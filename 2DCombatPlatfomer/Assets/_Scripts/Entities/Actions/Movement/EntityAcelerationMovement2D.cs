@@ -4,7 +4,6 @@ public class EntityAcelerationMovement2D : EntityMovement
 {
     [Header("Movement config")]
     [SerializeField] private FloatVariable maxSpeed;
-    // [SerializeField] private FloatVariable movementForce;
     [SerializeField] private AnimationCurve acelerationCurve;
     [SerializeField] private FloatVariable timeToReachMaxSpeed;
     [SerializeField] private AnimationCurve decelerationCurve;
@@ -40,7 +39,7 @@ public class EntityAcelerationMovement2D : EntityMovement
         _timeSlowingDown = 0f;
         Vector2 newVelocity = Vector2.Lerp(
             Vector2.zero,
-            control.Direction.normalized * maxSpeed.Value,
+            Vector2.right * control.Direction.x * maxSpeed.Value,
             acelerationCurve.Evaluate(_timeAccelerating / timeToReachMaxSpeed.Value)
         );
         rigidBody.velocity = new Vector2(newVelocity.x,rigidBody.velocity.y);

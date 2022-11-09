@@ -1,7 +1,6 @@
 using UnityEngine;
 
-public abstract class DamageTaker : MonoBehaviour
+public interface IDamageTaker
 {
     public abstract void TakeDamage(float damage, Vector2 contactPoint = default);
-    // public abstract void TakeDamage(float damage, Vector2 contactPoint);
 }
