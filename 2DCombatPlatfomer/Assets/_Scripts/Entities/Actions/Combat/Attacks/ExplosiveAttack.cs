@@ -1,54 +1,12 @@
-using System.Collections.Generic;
 using UnityEngine;
 
-public class ExplosiveAttack : Attack
+public class ExplosiveAttack : SimpleAttack
 {
-    [Tooltip("Collider of the Attacker entity")]
-    [SerializeField] private Transform explosionPoint;
-    [SerializeField] private int[] damageableLayers;
-    [SerializeField] private ForceApplier2D forceApplier = null;
+    public override Collider2D[] ObjectsImpacted() => Physics2D.OverlapCircleAll(AttackPoint.position,attackData.Range);
 
-    public override void PerformAttack()
+    public override Vector2 AttackForceDirection(Vector2 closestPoint)
     {
-        Collider2D[] objectsImpacted = Physics2D.OverlapCircleAll(explosionPoint.position,attackData.Range);
-        foreach (Collider2D objectImpacted in objectsImpacted)
-        {
-            foreach (int layer in damageableLayers)
-            {
-                if(objectImpacted.gameObject.layer == layer){
-                    IDamageTaker damageTaker = objectImpacted.GetComponentInChildren<IDamageTaker>();
-                    Rigidbody2D targetRigidbody = objectImpacted.GetComponent<Rigidbody2D>();
-                    Vector2 closestPoint = objectImpacted.ClosestPoint(explosionPoint.position);
-                    SetEffects(closestPoint);
-                    if(targetRigidbody && forceApplier){
-                        EntityStatus2D targetStatus = objectImpacted.GetComponent<EntityStatus2D>();
-                        ApplyForce(targetRigidbody,closestPoint);
-                        if(targetStatus) targetStatus.ApplyForce();
-                    }
-                    if(damageTaker != null){
-                        damageTaker.TakeDamage(attackData.Damage,closestPoint);
-                    }
-                    OnAttackConnected?.Invoke();
-                }
-            }
-        }
-    }
-
-    public override bool CanAttack() =>
-        entityStatus.IsOnGround() &&
-        attackStatus == AttackStatus.notStarted &&
-        !entityStatus.IsAttacking;
-
-    public override bool WasCancelled() => !entityStatus.IsOnGround();
-
-    void SetEffects(Vector2 closestPoint){
-        foreach (Transform fx in fxsOnImpact){
-            fx.position = closestPoint;
-        }
-    }
-
-    void ApplyForce(Rigidbody2D targetRigidbody, Vector2 closestPoint){
-        Vector2 direction = (closestPoint - (Vector2)explosionPoint.position) + forceApplier.ForceDirection;
-        forceApplier.ApplyForce(targetRigidbody,direction);
+        Vector2 explosionDirection = closestPoint - (Vector2)AttackPoint.position;
+        return ForceApplier.ForceDirection + explosionDirection;
     }
 }

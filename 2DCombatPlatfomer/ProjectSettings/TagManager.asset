@@ -60,6 +60,9 @@ TagManager:
   - name: ForegroundDetails
     uniqueID: 3378675135
     locked: 0
+  - name: Objects
+    uniqueID: 3939181165
+    locked: 0
   - name: Enemies
     uniqueID: 260879775
     locked: 0

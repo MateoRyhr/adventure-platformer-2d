@@ -463,6 +463,37 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &3002605458535749110
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4731819048427008459}
+  m_Layer: 3
+  m_Name: CastPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4731819048427008459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002605458535749110}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.818, y: 1.134, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4036361683121134629}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3173613046346530444
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,7 +983,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 544266817
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 1cb58cedada3e1c40a4721f4e0416371, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1063,14 +1094,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackData: {fileID: 11400000, guid: 9ab84cfb3fde8d74fb8ac1702c2e348a, type: 2}
-  entityStatus: {fileID: 3828110810931657553}
-  animator: {fileID: 3828110810940003402}
-  _attackAnimationName: meleeCombo
+  attackingEntity: {fileID: 7351825493083901190}
+  _attackAnimationName: comboAttack2
   attackStatus: 0
   nextEvent: 0
-  fxsOnImpact:
-  - {fileID: 3828110811584370842}
-  - {fileID: 3828110811987627915}
   OnAttackStarted:
     m_PersistentCalls:
       m_Calls:
@@ -1131,10 +1158,14 @@ MonoBehaviour:
   OnAttackFinished:
     m_PersistentCalls:
       m_Calls: []
-  attackerCollider: {fileID: 3828110810931657558}
-  damageableLayers: 0700000008000000
-  forceApplier: {fileID: 3828110810766416563}
-  attackPoint: {fileID: 3828110812677679519}
+  OnAttackCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  AttackPoint: {fileID: 3828110812677679519}
+  ForceApplier: {fileID: 0}
+  fxsOnImpact:
+  - {fileID: 3828110811584370842}
+  - {fileID: 3828110811987627915}
 --- !u!114 &3828110810766416563
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1148,7 +1179,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceDirection: {x: 0.1, y: 0.9}
-  force: {fileID: 11400000, guid: 1082dadf456dbe94f836ec5a4ed8a8e8, type: 2}
+  _force: {fileID: 11400000, guid: 1082dadf456dbe94f836ec5a4ed8a8e8, type: 2}
+  _addRandomVariation: 1
+  _forceOfTheVariation:
+    minValue: 0.10188087
+    maxValue: 0.19984329
 --- !u!1 &3828110810819504475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1208,7 +1243,7 @@ GameObject:
   - component: {fileID: 3828110810866618842}
   - component: {fileID: 3828110810866618843}
   m_Layer: 3
-  m_Name: MagicAttack1
+  m_Name: AttackMagicExplosiveProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1246,7 +1281,19 @@ MonoBehaviour:
   ActionNumber: 3
   Action:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8091642979114559672}
+        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
+        m_MethodName: TryAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &3828110810876868697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1322,6 +1369,7 @@ GameObject:
   - component: {fileID: 3828110810931657554}
   - component: {fileID: 3828110810931657553}
   - component: {fileID: 1900502524233644253}
+  - component: {fileID: 7351825493083901190}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -1426,6 +1474,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0b906e72ccd7474aa73ab5532e6045e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7351825493083901190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3828110810931657583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 173b5382689449a46abf244d1e9b424d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entityStatus: {fileID: 3828110810931657553}
+  _damageableLayers: 07000000080000000a000000
+  _animator: {fileID: 3828110810940003402}
+  _cancelAttackAnimationTriggerName: cancelAttack
+  _collider: {fileID: 3828110810931657558}
 --- !u!1 &3828110810940003399
 GameObject:
   m_ObjectHideFlags: 0
@@ -1501,7 +1566,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 544266817
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1147031900, guid: 163a78ef41aa8814ab8470e13145253d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1895,13 +1960,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackData: {fileID: 11400000, guid: 1f85e297125495944bcfc599ce112554, type: 2}
-  entityStatus: {fileID: 3828110810931657553}
-  animator: {fileID: 3828110810940003402}
+  attackingEntity: {fileID: 0}
   _attackAnimationName: magicMelee
   attackStatus: 0
   nextEvent: 0
-  fxsOnImpact:
-  - {fileID: 3828110810982232097}
   OnAttackStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -1974,10 +2036,13 @@ MonoBehaviour:
   OnAttackFinished:
     m_PersistentCalls:
       m_Calls: []
-  attackerCollider: {fileID: 3828110810931657558}
-  damageableLayers: 0700000008000000
-  forceApplier: {fileID: 3828110811726750360}
-  attackPoint: {fileID: 3828110811187660411}
+  OnAttackCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  AttackPoint: {fileID: 0}
+  ForceApplier: {fileID: 0}
+  fxsOnImpact:
+  - {fileID: 3828110810982232097}
 --- !u!114 &3828110811726750360
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1991,7 +2056,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceDirection: {x: 0.5, y: 0.5}
-  force: {fileID: 11400000, guid: 56905880644509f489b3d1e61188eeed, type: 2}
+  _force: {fileID: 0}
+  _addRandomVariation: 0
+  _forceOfTheVariation:
+    minValue: 0
+    maxValue: 0
 --- !u!1 &3828110811769481183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2071,14 +2140,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackData: {fileID: 11400000, guid: 1d382d9f0e27aa74fa6156ba956fd9d5, type: 2}
-  entityStatus: {fileID: 3828110810931657553}
-  animator: {fileID: 3828110810940003402}
-  _attackAnimationName: meleeCombo
+  attackingEntity: {fileID: 7351825493083901190}
+  _attackAnimationName: comboAttack3
   attackStatus: 0
   nextEvent: 0
-  fxsOnImpact:
-  - {fileID: 3828110810982232097}
-  - {fileID: 3828110811987627915}
   OnAttackStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -2151,9 +2216,14 @@ MonoBehaviour:
   OnAttackFinished:
     m_PersistentCalls:
       m_Calls: []
-  explosionPoint: {fileID: 3828110811769481180}
-  damageableLayers: 0700000008000000
-  forceApplier: {fileID: 3828110811954726705}
+  OnAttackCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  AttackPoint: {fileID: 3828110811769481180}
+  ForceApplier: {fileID: 0}
+  fxsOnImpact:
+  - {fileID: 3828110810982232097}
+  - {fileID: 3828110811987627915}
 --- !u!114 &3828110811954726705
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2167,7 +2237,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceDirection: {x: 0, y: 1}
-  force: {fileID: 11400000, guid: d4c16a401b082d74f9ecae8a43c8c54f, type: 2}
+  _force: {fileID: 11400000, guid: d4c16a401b082d74f9ecae8a43c8c54f, type: 2}
+  _addRandomVariation: 1
+  _forceOfTheVariation:
+    minValue: 0.10188087
+    maxValue: 0.19984329
 --- !u!1 &3828110811958687223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2252,14 +2326,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackData: {fileID: 11400000, guid: ccff93dcaf034844bb4b5b9add07116c, type: 2}
-  entityStatus: {fileID: 3828110810931657553}
-  animator: {fileID: 3828110810940003402}
-  _attackAnimationName: meleeCombo
+  attackingEntity: {fileID: 7351825493083901190}
+  _attackAnimationName: comboAttack1
   attackStatus: 0
   nextEvent: 0
-  fxsOnImpact:
-  - {fileID: 3828110810982232097}
-  - {fileID: 3828110811987627915}
   OnAttackStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -2332,10 +2402,14 @@ MonoBehaviour:
   OnAttackFinished:
     m_PersistentCalls:
       m_Calls: []
-  attackerCollider: {fileID: 3828110810931657558}
-  damageableLayers: 0700000008000000
-  forceApplier: {fileID: 3828110811983869878}
-  attackPoint: {fileID: 3828110812347918530}
+  OnAttackCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  AttackPoint: {fileID: 3828110812347918530}
+  ForceApplier: {fileID: 0}
+  fxsOnImpact:
+  - {fileID: 3828110810982232097}
+  - {fileID: 3828110811987627915}
 --- !u!114 &3828110811983869878
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2349,7 +2423,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceDirection: {x: 0.9, y: 0.1}
-  force: {fileID: 11400000, guid: efa1b2c02ab05df47a9e50d9d11e1dca, type: 2}
+  _force: {fileID: 11400000, guid: efa1b2c02ab05df47a9e50d9d11e1dca, type: 2}
+  _addRandomVariation: 1
+  _forceOfTheVariation:
+    minValue: 0.10188087
+    maxValue: 0.19984329
 --- !u!1 &3828110811987627914
 GameObject:
   m_ObjectHideFlags: 0
@@ -2628,8 +2706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 394f208b526e669458e7767d9b5cb72d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entityStatus: {fileID: 3828110810931657553}
-  attacks:
+  _entityStatus: {fileID: 3828110810931657553}
+  _attacks:
   - {fileID: 3828110811983869873}
   - {fileID: 3828110810766416562}
   - {fileID: 3828110811954726710}
@@ -3401,6 +3479,18 @@ MonoBehaviour:
           m_StringArgument: teleport
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1670970358993942843}
+        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
+        m_MethodName: ActiveAfterCooldownTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTeleportPerformedBefore:
     m_PersistentCalls:
       m_Calls:
@@ -3431,12 +3521,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnTeleportEnd:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1670970358993942843}
-        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
-        m_MethodName: ActiveAfterCooldownTime
+      - m_Target: {fileID: 7380970982078370864}
+        m_TargetAssemblyTypeName: ActionRequiresAnAmount, Assembly-CSharp
+        m_MethodName: SubstractAmount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3446,6 +3533,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  OnTeleportEnd:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &1670970358993942843
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3548,6 +3638,54 @@ RectTransform:
   m_AnchoredPosition: {x: 8, y: -8}
   m_SizeDelta: {x: 1, y: 1}
   m_Pivot: {x: 0, y: 1}
+--- !u!1 &7912918819416544109
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2404594669629602694}
+  - component: {fileID: 118922675709250935}
+  m_Layer: 3
+  m_Name: CastFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2404594669629602694
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912918819416544109}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4036361683121134629}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &118922675709250935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7912918819416544109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27b7644818ea17d4cb61ccd03e28ad7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fxPosition: {fileID: 4731819048427008459}
+  fxPrefab: {fileID: 100002, guid: af0b7807fe585594081eb0efbc80e5d3, type: 3}
+  fxParticleSystem: {fileID: 19800002, guid: af0b7807fe585594081eb0efbc80e5d3, type: 3}
+  fxDuration: 0.5
 --- !u!1 &8393610088869424550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3634,8 +3772,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4036361683121134629}
+  - component: {fileID: 929856331452361108}
+  - component: {fileID: 8091642979114559672}
+  - component: {fileID: 5900840452331920586}
   m_Layer: 3
-  m_Name: MagicAttack
+  m_Name: MagicAttackProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3652,10 +3793,145 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4731819048427008459}
+  - {fileID: 2404594669629602694}
   m_Father: {fileID: 3828110811958687220}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &929856331452361108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8923809313660443847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f50e4772de92c274a9ab5bef270f2013, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackData: {fileID: 11400000, guid: f9e344bfa1b9992429b3c52bd098519d, type: 2}
+  attackingEntity: {fileID: 7351825493083901190}
+  _attackAnimationName: magicProjectile
+  attackStatus: 0
+  nextEvent: 0
+  OnAttackStarted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8091642979114559672}
+        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
+        m_MethodName: ActiveAfterCooldownTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnAttackPerformed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5900840452331920586}
+        m_TargetAssemblyTypeName: ActionRequiresAnAmount, Assembly-CSharp
+        m_MethodName: SubstractAmount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 118922675709250935}
+        m_TargetAssemblyTypeName: FXInstantiator, Assembly-CSharp
+        m_MethodName: PlayEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnAttackConnected:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAttackFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAttackCancelled:
+    m_PersistentCalls:
+      m_Calls: []
+  _castPoint: {fileID: 4731819048427008459}
+  _projectil: {fileID: 4007940287080387451, guid: e1fda84e16bd66e48956b2f87bf0812c, type: 3}
+--- !u!114 &8091642979114559672
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8923809313660443847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6981aef3f19ff8344b236b480a0f5a55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _cooldown: {fileID: 11400000, guid: 55631f81eb85584498cb110ab214c7ff, type: 2}
+  OnAction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5900840452331920586}
+        m_TargetAssemblyTypeName: ActionRequiresAnAmount, Assembly-CSharp
+        m_MethodName: TryAction
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnActionInCooldown:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &5900840452331920586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8923809313660443847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 452f2377c02bf424fb19636adbe02e77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _amount: {fileID: 7442294756123859026}
+  _cost: {fileID: 11400000, guid: 8e054a3a1874f21478d46b526a36309b, type: 2}
+  OnAmountEnough:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 929856331452361108}
+        m_TargetAssemblyTypeName: Attack, Assembly-CSharp
+        m_MethodName: StartAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnAmountNotEnough:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &4603742430394716560
 PrefabInstance:
   m_ObjectHideFlags: 0

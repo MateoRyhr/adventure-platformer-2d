@@ -11,10 +11,13 @@ public class ActionRequiresAnAmount : MonoBehaviour
 
     public void TryAction(){
         if(_amount.Value >= _cost.Value){
-            _amount.Substract(_cost.Value);
             OnAmountEnough?.Invoke();
         }
         else
             OnAmountNotEnough?.Invoke();
+    }
+
+    public void SubstractAmount(){
+        _amount.Substract(_cost.Value);
     }
 }

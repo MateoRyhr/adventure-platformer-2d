@@ -789,6 +789,7 @@ GameObject:
   - component: {fileID: 6105215652076644870}
   - component: {fileID: 6105215652076644869}
   - component: {fileID: 6105215652076644871}
+  - component: {fileID: 8176462575288014630}
   - component: {fileID: 8453035670733353001}
   - component: {fileID: 3965159423532846324}
   - component: {fileID: 3034303641590492241}
@@ -881,6 +882,7 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 64
+  _additionalPointsToCheckGround: 0
 --- !u!114 &6105215652076644871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -930,7 +932,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   Bar: {fileID: 5935456778861449228}
-  _collider: {fileID: 6105215652076644868}
   _damageEffectPosition: {fileID: 0}
   OnDamage:
     m_PersistentCalls:
@@ -974,6 +975,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8176462575288014630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105215652076644874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 173b5382689449a46abf244d1e9b424d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _entityStatus: {fileID: 6105215652076644869}
+  _damageableLayers: 03000000080000000a000000
+  _animator: {fileID: 6105215651454949882}
+  _collider: {fileID: 6105215652076644868}
 --- !u!114 &8453035670733353001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1218,13 +1235,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackData: {fileID: 11400000, guid: a03e1b08c04a911408b54cadfb40b137, type: 2}
-  entityStatus: {fileID: 6105215652076644869}
-  animator: {fileID: 6105215651454949882}
+  attackingEntity: {fileID: 8176462575288014630}
   _attackAnimationName: attack
   attackStatus: 0
   nextEvent: 0
-  fxsOnImpact:
-  - {fileID: 7826906959560520112}
   OnAttackStarted:
     m_PersistentCalls:
       m_Calls:
@@ -1273,10 +1287,10 @@ MonoBehaviour:
   OnAttackFinished:
     m_PersistentCalls:
       m_Calls: []
-  attackerCollider: {fileID: 6105215652076644868}
-  damageableLayers: 03000000
-  forceApplier: {fileID: 1879055089280791155}
-  attackPoint: {fileID: 8024006412255470573}
+  AttackPoint: {fileID: 8024006412255470573}
+  _forceApplier: {fileID: 1879055089280791155}
+  fxsOnImpact:
+  - {fileID: 7826906959560520112}
 --- !u!114 &1879055089280791155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1290,7 +1304,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ForceDirection: {x: 0.1, y: 0}
-  force: {fileID: 11400000, guid: adb18c0a32e505942aafabe22970d374, type: 2}
+  _force: {fileID: 11400000, guid: adb18c0a32e505942aafabe22970d374, type: 2}
+  _addRandomVariation: 1
+  _forceOfTheVariation:
+    minValue: 0
+    maxValue: 0.24772914
 --- !u!1001 &9002037991303967358
 PrefabInstance:
   m_ObjectHideFlags: 0

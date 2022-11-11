@@ -1,60 +1,17 @@
 using UnityEngine;
 
-public class FrontAttack : Attack
+public class FrontAttack : SimpleAttack
 {
-    [Tooltip("Collider of the Attacker entity")]
-    [SerializeField] private BoxCollider2D attackerCollider;
-    [SerializeField] private int[] damageableLayers;
-    [SerializeField] private ForceApplier2D forceApplier = null;
-    [SerializeField] public Transform attackPoint;
-
-    public override void PerformAttack()
+    public override Collider2D[] ObjectsImpacted()
     {
-        Collider2D[] objectsImpacted = Physics2D.OverlapBoxAll(
-            transform.position + Vector3.right * attackerCollider.transform.localScale.x * attackData.Range/2,
-            new Vector2(attackData.Range,attackerCollider.size.y),0);
-            
-        foreach (var objectImpacted in objectsImpacted)
-        {
-            foreach (int damageableLayer in damageableLayers)
-            {
-                if(objectImpacted.gameObject.layer == damageableLayer){
-                    IDamageTaker damageTaker = objectImpacted.GetComponentInChildren<IDamageTaker>();
-                    Rigidbody2D targetRigidbody = objectImpacted.GetComponent<Rigidbody2D>();
-                    Vector2 closestPoint = objectImpacted.ClosestPoint(attackPoint.position);
-                    SetEffects(closestPoint);
-                    if(targetRigidbody && forceApplier){
-                        EntityStatus2D targetStatus = objectImpacted.GetComponent<EntityStatus2D>();
-                        ApplyForce(targetRigidbody,closestPoint);
-                        if(targetStatus) targetStatus.ApplyForce();
-                    }
-                    if(damageTaker != null){
-                        damageTaker.TakeDamage(attackData.Damage,closestPoint);
-                    }
-                    OnAttackConnected?.Invoke();
-                }
-            }
-        }
+        return Physics2D.OverlapBoxAll(
+            transform.position + Vector3.right * attackingEntity.Collider.transform.localScale.x * attackData.Range/2,
+            new Vector2(attackData.Range,attackingEntity.Collider.size.y),0);
     }
 
-    public override bool CanAttack() =>
-        entityStatus.IsOnGround() &&
-        attackStatus == AttackStatus.notStarted &&
-        !entityStatus.IsAttacking;
-
-    public override bool WasCancelled() => !entityStatus.IsOnGround();
-
-    void SetEffects(Vector2 closestPoint){
-        foreach (Transform fx in fxsOnImpact){
-            fx.position = closestPoint;
-        }
-    }
-
-    void ApplyForce(Rigidbody2D targetRigidbody, Vector2 closestPoint){
-        Vector2 direction = new Vector2(forceApplier.ForceDirection.x * attackerCollider.transform.localScale.x,forceApplier.ForceDirection.y);
-        forceApplier.ApplyForce(targetRigidbody,direction);
-    }
-
+    public override Vector2 AttackForceDirection(Vector2 closestPoint) => 
+        new Vector2(ForceApplier.ForceDirection.x * attackingEntity.Collider.transform.localScale.x,ForceApplier.ForceDirection.y);
+        
     //For debug
     // private void OnDrawGizmosSelected() {
     //     Gizmos.color = Color.red;

@@ -32,7 +32,7 @@ public class StateMeleeCombat : IState
         Jump = OnJump;
     }
 
-    public void OnEnter(){}
+    public void OnEnter() =>  _timeUntilAttack = _timeBeforeAttack;
 
     public void OnExit() {}
 
@@ -56,7 +56,8 @@ public class StateMeleeCombat : IState
         }
     }
 
-    void FollowEnemy(){
+    void FollowEnemy()
+    {
         Vector2 direction =
             (_enemyLastPosition.x - _aiData.Collider.transform.position.x) < 0
             ? Vector2.left : Vector2.right;
@@ -69,7 +70,8 @@ public class StateMeleeCombat : IState
                 _movement.Direction = Vector2.zero;
     }
 
-    void FollowLastEnemyPosition(){
+    void FollowLastEnemyPosition()
+    {
         if(_distanceToLastPosition > 0.2f && !_enemyLastPositionReached){
             _movement.Direction = (_enemyLastPosition.x - _aiData.Collider.transform.position.x) > 0
                 ? Vector2.right
@@ -86,7 +88,8 @@ public class StateMeleeCombat : IState
         if(!_aiData.IsGroundInFrontToFall()) _movement.Direction = Vector2.zero;
     }
 
-    void Attack(){
+    void Attack()
+    {
         _movement.Direction = Vector2.zero;
         if(_timeUntilAttack <= 0f){
             PerformAttack.Invoke();

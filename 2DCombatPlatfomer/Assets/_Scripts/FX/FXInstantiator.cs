@@ -8,7 +8,7 @@ public class FXInstantiator : MonoBehaviour
     [SerializeField] private float fxDuration;
 
     public void PlayEffect(){
-        GameObject fx = Instantiate(fxPrefab,fxPosition.position,Quaternion.Euler(0,0,0),null);
+        GameObject fx = Instantiate(fxPrefab,fxPosition.position,fxPrefab.transform.rotation,null);
         if(!fxParticleSystem.main.playOnAwake) fxParticleSystem.Play();
         Destroy(fx,fxDuration);
     }

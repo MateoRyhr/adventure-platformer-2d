@@ -16,31 +16,27 @@ public enum AttackNextEvent
 
 public abstract class Attack : MonoBehaviour
 {
-    public AttackData attackData;
-    public EntityStatus2D entityStatus;
-    public Animator animator;
+    [SerializeField] public AttackData attackData;
+    [SerializeField] public AttackingEntity attackingEntity;
     [Tooltip("The name of the trigger that start the attack animation")]
     public string _attackAnimationName;
     [HideInInspector] public AttackStatus attackStatus = AttackStatus.notStarted;
     [HideInInspector] public AttackNextEvent nextEvent = AttackNextEvent.finish;
-    [Header("Optional")]
-    // [SerializeField] public Transform[] fxsOnStart;
-    // [SerializeField] public Transform[] fxsOnPerform;
-    [SerializeField] public Transform[] fxsOnImpact;
-    // [SerializeField] private LayerMask damageableLayers; --> All attacks need a Layermask? Possible abstraction
+
     public UnityEvent OnAttackStarted;
     public UnityEvent OnAttackPerformed;
     public UnityEvent OnAttackConnected;
     public UnityEvent OnAttackFinished;
+    public UnityEvent OnAttackCancelled;
 
     private void Update() {
-        if(WasCancelled()) CancelAttack();
+        if(attackStatus != AttackStatus.notStarted && WasCancelled()) CancelAttack();
     }
 
     public void StartAttack(){
         if(CanAttack()){
 
-            entityStatus.IsAttacking = true;
+            attackingEntity.EntityStatus.IsAttacking = true;
             nextEvent = AttackNextEvent.finish;
             attackStatus = AttackStatus.started;
 
@@ -48,13 +44,15 @@ public abstract class Attack : MonoBehaviour
             OnAttackStarted?.Invoke();
 
             this.Invoke( () => {
-                PerformAttack();
-                attackStatus = AttackStatus.performed;
-                OnAttackPerformed?.Invoke();
+                if(!WasCancelled()){
+                    PerformAttack();
+                    attackStatus = AttackStatus.performed;
+                    OnAttackPerformed?.Invoke();
+                }
             }, attackData.TimeUntilAttackDone);
 
             this.Invoke(() => {
-                entityStatus.IsAttacking = false;
+                attackingEntity.EntityStatus.IsAttacking = false;
                 OnAttackFinished?.Invoke();
                 FinishAttack();              
             }, attackData.AnimationTime);
@@ -69,14 +67,20 @@ public abstract class Attack : MonoBehaviour
     }
 
     public void CancelAttack(){
-        entityStatus.IsAttacking = false;
+        RestartAttack();
+        OnAttackCancelled?.Invoke();
+        attackingEntity.CancelAttackAnimation();
+    }
+
+    public void RestartAttack(){
+        attackingEntity.EntityStatus.IsAttacking = false;
         nextEvent = AttackNextEvent.finish;
         CancelInvoke();
         FinishAttack();
     }
 
     void PlayAttackAnimation(){
-        animator.SetTrigger(_attackAnimationName);
+        attackingEntity.Animator.SetTrigger(_attackAnimationName);
     }
 
     public abstract void PerformAttack();

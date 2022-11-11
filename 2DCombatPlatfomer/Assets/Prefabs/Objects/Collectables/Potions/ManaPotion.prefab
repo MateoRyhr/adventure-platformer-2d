@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 3022041392003997787}
   - component: {fileID: 3022041392003997784}
   - component: {fileID: 4313803758453255677}
+  - component: {fileID: -6055791934356241821}
   m_Layer: 10
   m_Name: ManaPotion
   m_TagString: Untagged
@@ -168,9 +169,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 544266817
-  m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingLayerID: -355786131
+  m_SortingLayer: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 69694762, guid: 233fd171ff9025949917ba9f85448b1c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -230,9 +231,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 3
+  m_LinearDrag: 0.5
+  m_AngularDrag: 3
   m_GravityScale: 1
   m_Material: {fileID: 6200000, guid: 7dd7e374348360649986cbcd2caa8caf, type: 2}
   m_Interpolate: 1
@@ -282,3 +283,16 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AmountToRestore: 20
+--- !u!114 &-6055791934356241821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3022041392003997791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e046718836f90ea48b8b7b64b8d90ff9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _forceMultiplier: 0.075
