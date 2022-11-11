@@ -13,8 +13,9 @@ public class ActionRequiresAnAmount : MonoBehaviour
         if(_amount.Value >= _cost.Value){
             OnAmountEnough?.Invoke();
         }
-        else
+        else{
             OnAmountNotEnough?.Invoke();
+        }
     }
 
     public void SubstractAmount(){

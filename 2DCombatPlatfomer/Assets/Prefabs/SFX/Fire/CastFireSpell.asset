@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13a9f940313d06d4caed9863bf024ebf, type: 3}
-  m_Name: PlayerKnee
+  m_Name: CastFireSpell
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: a65d792d6907f744490c9b15bb70edfe, type: 3}
+  - {fileID: 8300000, guid: 66d751a346b52fe46832f46acd0a5145, type: 3}
   volume:
-    minValue: 0.7418668
-    maxValue: 0.902706
+    minValue: 0.7931192
+    maxValue: 0.9451411
   pitch:
-    minValue: 1.5986626
-    maxValue: 1.902706
+    minValue: 1.3981507
+    maxValue: 1.6003135

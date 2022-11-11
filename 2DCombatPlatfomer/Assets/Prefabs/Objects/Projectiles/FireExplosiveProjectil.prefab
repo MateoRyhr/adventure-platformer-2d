@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4007940286333915566}
   - component: {fileID: 4007940286333915569}
   m_Layer: 0
-  m_Name: MagicImpactFX
+  m_Name: FireImpactFX
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,7 +63,7 @@ GameObject:
   - component: {fileID: 4007940287080387451}
   - component: {fileID: 4007940287080387450}
   m_Layer: 0
-  m_Name: MagicExplosiveProjectil
+  m_Name: FireExplosiveProjectil
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,6 +82,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4007940287601307878}
+  - {fileID: 2497389132412586423}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -206,6 +207,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1952495112727987528}
+        m_TargetAssemblyTypeName: SoundInstantiator, Assembly-CSharp
+        m_MethodName: PlayAudioEvent
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5420189453251271324, guid: 9169f4f46f4987c4ca2e9f9068a145e3, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnHitConnected:
+    m_PersistentCalls:
+      m_Calls:
       - m_Target: {fileID: 4007940286333915569}
         m_TargetAssemblyTypeName: FXInstantiator, Assembly-CSharp
         m_MethodName: PlayEffect
@@ -213,6 +229,18 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1952495112727987528}
+        m_TargetAssemblyTypeName: SoundInstantiator, Assembly-CSharp
+        m_MethodName: PlayAudioEvent
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5420189453251271324, guid: e2bc282254012a049b193dfe54696cdd, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -320,6 +348,50 @@ MonoBehaviour:
   fxPrefab: {fileID: 1134129239631916, guid: f75918c7046231440b44262217211562, type: 3}
   fxParticleSystem: {fileID: 198572881580852744, guid: f75918c7046231440b44262217211562, type: 3}
   fxDuration: 2
+--- !u!1 &7254650901568403078
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2497389132412586423}
+  - component: {fileID: 1952495112727987528}
+  m_Layer: 0
+  m_Name: SFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2497389132412586423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254650901568403078}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4007940287080387446}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1952495112727987528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7254650901568403078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db00c148e8859514fa56d0fc0344eec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2421734740210000064
 PrefabInstance:
   m_ObjectHideFlags: 0

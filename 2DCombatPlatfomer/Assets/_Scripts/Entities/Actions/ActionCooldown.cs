@@ -11,15 +11,14 @@ public class ActionCooldown : MonoBehaviour
 
     private void Start()
     {
-        Enabled = true;    
+        Enabled = true;
     }
 
     public void TryAction()
     {
         if(Enabled)
         {
-            OnAction?.Invoke();   
-            Enabled = false;
+            OnAction?.Invoke();
         }
         else
         {

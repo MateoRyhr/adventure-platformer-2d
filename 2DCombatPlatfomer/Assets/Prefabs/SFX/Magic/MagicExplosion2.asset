@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13a9f940313d06d4caed9863bf024ebf, type: 3}
-  m_Name: MagicHit
+  m_Name: MagicExplosion2
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: da396a16a7f24f64cbb0054f5a56b46a, type: 3}
-  - {fileID: 8300000, guid: 75f4d457d95cf724bbcf11f8b2482af8, type: 3}
+  - {fileID: 8300000, guid: 66d751a346b52fe46832f46acd0a5145, type: 3}
   volume:
-    minValue: 0.44998476
-    maxValue: 0.54727876
+    minValue: 0.9459405
+    maxValue: 1
   pitch:
-    minValue: 1.7999393
-    maxValue: 2
+    minValue: 1.4527473
+    maxValue: 1.5532916

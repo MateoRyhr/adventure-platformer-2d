@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Attack1DataHumanSimpleWarrior
   m_EditorClassIdentifier: 
   Damage: 5
-  Range: 0.8
+  Range: 1.3
   AnimationTime: 0.75
   TimeUntilAttackDone: 0.25

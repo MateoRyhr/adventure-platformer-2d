@@ -12,6 +12,7 @@ public abstract class Projectile : MonoBehaviour
     [SerializeField] public Transform[] fxsOnImpact;
 
     public UnityEvent OnHit;
+    public UnityEvent OnHitConnected;
     
     public abstract Collider2D[] ObjectsImpacted();
     public abstract void Impulse(Vector2 direction);
@@ -33,6 +34,7 @@ public abstract class Projectile : MonoBehaviour
                         if(targetStatus) targetStatus.ApplyForce();
                     }
                     if(damageTaker != null) damageTaker.TakeDamage(_attackData.Damage,closestPoint);
+                    OnHitConnected?.Invoke();
                 }
             }
         }

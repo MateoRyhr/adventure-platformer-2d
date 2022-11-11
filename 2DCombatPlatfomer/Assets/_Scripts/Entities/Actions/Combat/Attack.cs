@@ -35,14 +35,11 @@ public abstract class Attack : MonoBehaviour
 
     public void StartAttack(){
         if(CanAttack()){
-
+            OnAttackStarted?.Invoke();
             attackingEntity.EntityStatus.IsAttacking = true;
             nextEvent = AttackNextEvent.finish;
             attackStatus = AttackStatus.started;
-
             PlayAttackAnimation();
-            OnAttackStarted?.Invoke();
-
             this.Invoke( () => {
                 if(!WasCancelled()){
                     PerformAttack();

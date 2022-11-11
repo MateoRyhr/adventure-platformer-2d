@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13a9f940313d06d4caed9863bf024ebf, type: 3}
-  m_Name: PlayerExplosiveMagicAttack
+  m_Name: ElectricCast1
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: da396a16a7f24f64cbb0054f5a56b46a, type: 3}
+  - {fileID: 8300000, guid: 360c585cc8ec86b4ba2321c819fe927c, type: 3}
   volume:
-    minValue: 0.8479781
+    minValue: 0.84797806
     maxValue: 1
   pitch:
-    minValue: 0.80267555
-    maxValue: 0.99726385
+    minValue: 1.8432602
+    maxValue: 2

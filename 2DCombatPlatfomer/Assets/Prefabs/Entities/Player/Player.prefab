@@ -48,50 +48,6 @@ MonoBehaviour:
   fxPrefab: {fileID: 100000, guid: 9e44fcc9172271e44afd75f0e1e729b7, type: 3}
   fxParticleSystem: {fileID: 19800000, guid: 9e44fcc9172271e44afd75f0e1e729b7, type: 3}
   fxDuration: 0.5
---- !u!1 &812550432
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 812550433}
-  - component: {fileID: 812550434}
-  m_Layer: 3
-  m_Name: SFXCloseMagicAttackPerformed (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &812550433
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812550432}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 0.38, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3828110811726750362}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &812550434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 812550432}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db00c148e8859514fa56d0fc0344eec1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1176148595115093230
 GameObject:
   m_ObjectHideFlags: 0
@@ -472,6 +428,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4731819048427008459}
+  - component: {fileID: 5386060710596407151}
   m_Layer: 3
   m_Name: CastPoint
   m_TagString: Untagged
@@ -494,6 +451,18 @@ Transform:
   m_Father: {fileID: 4036361683121134629}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5386060710596407151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3002605458535749110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db00c148e8859514fa56d0fc0344eec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3173613046346530444
 GameObject:
   m_ObjectHideFlags: 0
@@ -1106,7 +1075,7 @@ MonoBehaviour:
         m_MethodName: PlayAudioEvent
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5420189453251271324, guid: a59e2d7a63dcdd047be2b893d86fc3d0, type: 3}
+          m_ObjectArgument: {fileID: 5420189453251271324, guid: 2130e18fadd84704293403f946955c32, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -1162,7 +1131,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AttackPoint: {fileID: 3828110812677679519}
-  ForceApplier: {fileID: 0}
+  ForceApplier: {fileID: 3828110810766416563}
   fxsOnImpact:
   - {fileID: 3828110811584370842}
   - {fileID: 3828110811987627915}
@@ -1783,85 +1752,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   axisXInput: {fileID: 3496016287569116333}
   axisYInput: {fileID: 2977352697866459578}
---- !u!1 &3828110811187660410
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3828110811187660411}
-  m_Layer: 3
-  m_Name: AttackPoint
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3828110811187660411
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3828110811187660410}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.0239999, y: 0.38, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3828110811726750362}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3828110811214461620
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3828110811214461621}
-  - component: {fileID: 3828110811214461626}
-  m_Layer: 3
-  m_Name: FXCloseMagicAttackPerformed (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3828110811214461621
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3828110811214461620}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 0.38, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3828110811726750362}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3828110811214461626
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3828110811214461620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27b7644818ea17d4cb61ccd03e28ad7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fxPosition: {fileID: 3828110811214461621}
-  fxPrefab: {fileID: 100004, guid: 786b7370ddb600d429a2ed4e3c53316d, type: 3}
-  fxParticleSystem: {fileID: 19800004, guid: 786b7370ddb600d429a2ed4e3c53316d, type: 3}
-  fxDuration: 0.6
 --- !u!1 &3828110811584370837
 GameObject:
   m_ObjectHideFlags: 0
@@ -1910,157 +1800,6 @@ MonoBehaviour:
   fxPrefab: {fileID: 100000, guid: 9e44fcc9172271e44afd75f0e1e729b7, type: 3}
   fxParticleSystem: {fileID: 19800000, guid: 9e44fcc9172271e44afd75f0e1e729b7, type: 3}
   fxDuration: 0.5
---- !u!1 &3828110811726750357
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3828110811726750362}
-  - component: {fileID: 3828110811726750363}
-  - component: {fileID: 3828110811726750360}
-  m_Layer: 3
-  m_Name: MagicAttack(Old)-Short attack
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &3828110811726750362
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3828110811726750357}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.3, y: 0.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 3828110811187660411}
-  - {fileID: 3828110812494878599}
-  - {fileID: 3828110811214461621}
-  - {fileID: 812550433}
-  m_Father: {fileID: 3828110811958687220}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3828110811726750363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3828110811726750357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e5e047dcfa7224c806036611554f03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackData: {fileID: 11400000, guid: 1f85e297125495944bcfc599ce112554, type: 2}
-  attackingEntity: {fileID: 0}
-  _attackAnimationName: magicMelee
-  attackStatus: 0
-  nextEvent: 0
-  OnAttackStarted:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAttackPerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3828110812494878596}
-        m_TargetAssemblyTypeName: FXInstantiator, Assembly-CSharp
-        m_MethodName: PlayEffect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3828110811214461626}
-        m_TargetAssemblyTypeName: FXInstantiator, Assembly-CSharp
-        m_MethodName: PlayEffect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 812550434}
-        m_TargetAssemblyTypeName: SoundInstantiator, Assembly-CSharp
-        m_MethodName: PlayAudioEvent
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 5420189453251271324, guid: e2bc282254012a049b193dfe54696cdd, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnAttackConnected:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3828110810982232102}
-        m_TargetAssemblyTypeName: FXInstantiator, Assembly-CSharp
-        m_MethodName: PlayEffect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 877959588651095298}
-        m_TargetAssemblyTypeName: SoundInstantiator, Assembly-CSharp
-        m_MethodName: PlayAudioEvent
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 5420189453251271324, guid: 985340d45d898c04fba2f5350c758ba6, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  OnAttackFinished:
-    m_PersistentCalls:
-      m_Calls: []
-  OnAttackCancelled:
-    m_PersistentCalls:
-      m_Calls: []
-  AttackPoint: {fileID: 0}
-  ForceApplier: {fileID: 0}
-  fxsOnImpact:
-  - {fileID: 3828110810982232097}
---- !u!114 &3828110811726750360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3828110811726750357}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ea7a8d235ed1aa4b8c9abed9274d3da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ForceDirection: {x: 0.5, y: 0.5}
-  _force: {fileID: 0}
-  _addRandomVariation: 0
-  _forceOfTheVariation:
-    minValue: 0
-    maxValue: 0
 --- !u!1 &3828110811769481183
 GameObject:
   m_ObjectHideFlags: 0
@@ -2167,7 +1906,19 @@ MonoBehaviour:
         m_MethodName: PlayAudioEvent
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5420189453251271324, guid: 67e016e31ae9635478155e713f8834ea, type: 3}
+          m_ObjectArgument: {fileID: 5420189453251271324, guid: 3e15e7d42c8e5034fa2c4ada8ac319f9, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5322302635799733031}
+        m_TargetAssemblyTypeName: SoundInstantiator, Assembly-CSharp
+        m_MethodName: PlayAudioEvent
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5420189453251271324, guid: a8c60f5191881bd459dcb63ded0a6d12, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2206,7 +1957,7 @@ MonoBehaviour:
         m_MethodName: PlayAudioEvent
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5420189453251271324, guid: 985340d45d898c04fba2f5350c758ba6, type: 3}
+          m_ObjectArgument: {fileID: 5420189453251271324, guid: 6a4602e23007d4146a1cc6e1e80fdf84, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2220,7 +1971,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AttackPoint: {fileID: 3828110811769481180}
-  ForceApplier: {fileID: 0}
+  ForceApplier: {fileID: 3828110811954726705}
   fxsOnImpact:
   - {fileID: 3828110810982232097}
   - {fileID: 3828110811987627915}
@@ -2273,7 +2024,6 @@ Transform:
   - {fileID: 3828110812467989168}
   - {fileID: 3828110811038785604}
   - {fileID: 4036361683121134629}
-  - {fileID: 3828110811726750362}
   m_Father: {fileID: 3828110812286465541}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2353,7 +2103,7 @@ MonoBehaviour:
         m_MethodName: PlayAudioEvent
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5420189453251271324, guid: e2bc282254012a049b193dfe54696cdd, type: 3}
+          m_ObjectArgument: {fileID: 5420189453251271324, guid: 3e15e7d42c8e5034fa2c4ada8ac319f9, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2392,7 +2142,7 @@ MonoBehaviour:
         m_MethodName: PlayAudioEvent
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5420189453251271324, guid: 985340d45d898c04fba2f5350c758ba6, type: 3}
+          m_ObjectArgument: {fileID: 5420189453251271324, guid: 6a4602e23007d4146a1cc6e1e80fdf84, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2406,7 +2156,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   AttackPoint: {fileID: 3828110812347918530}
-  ForceApplier: {fileID: 0}
+  ForceApplier: {fileID: 3828110811983869878}
   fxsOnImpact:
   - {fileID: 3828110810982232097}
   - {fileID: 3828110811987627915}
@@ -2744,54 +2494,6 @@ Transform:
   m_Father: {fileID: 3828110810931657580}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3828110812494878598
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3828110812494878599}
-  - component: {fileID: 3828110812494878596}
-  m_Layer: 3
-  m_Name: FXCloseMagicAttackPerformed
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3828110812494878599
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3828110812494878598}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2, y: 0.28, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3828110811726750362}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3828110812494878596
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3828110812494878598}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27b7644818ea17d4cb61ccd03e28ad7c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fxPosition: {fileID: 3828110812494878599}
-  fxPrefab: {fileID: 100004, guid: 786b7370ddb600d429a2ed4e3c53316d, type: 3}
-  fxParticleSystem: {fileID: 19800004, guid: 786b7370ddb600d429a2ed4e3c53316d, type: 3}
-  fxDuration: 0.6
 --- !u!1 &3828110812595221573
 GameObject:
   m_ObjectHideFlags: 0
@@ -3144,7 +2846,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5525955566660883227}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.074, y: 0.719, z: 0}
+  m_LocalPosition: {x: 0.074, y: 0.999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3164,9 +2866,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fxPosition: {fileID: 2759418386318688436}
-  fxPrefab: {fileID: 100004, guid: eb6c7b68321d5a44b86f166a0aa7d75c, type: 3}
-  fxParticleSystem: {fileID: 19800004, guid: eb6c7b68321d5a44b86f166a0aa7d75c, type: 3}
-  fxDuration: 0.6
+  fxPrefab: {fileID: 1628744458893394, guid: bbaca3bf6b82ac748baeb3e5e0e62e14, type: 3}
+  fxParticleSystem: {fileID: 198755127273645396, guid: bbaca3bf6b82ac748baeb3e5e0e62e14, type: 3}
+  fxDuration: 1
 --- !u!1 &5870404689760347814
 GameObject:
   m_ObjectHideFlags: 0
@@ -3439,6 +3141,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2759418386318688436}
+  - {fileID: 7967985982587007633}
   m_Father: {fileID: 3828110812661165580}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3460,7 +3163,7 @@ MonoBehaviour:
   _groundLayer:
     serializedVersion: 2
     m_Bits: 64
-  _precision: 10
+  _precision: 50
   Distance: {fileID: 11400000, guid: 1814bf69bb356034aa3d175f7b02088c, type: 2}
   TimeWhenTeleportIsDone: {fileID: 11400000, guid: f2ba32f477b929e438fbb7da50460901, type: 2}
   AnimationTime: {fileID: 11400000, guid: 19e41bfc6f561b143889bff52252b867, type: 2}
@@ -3479,6 +3182,60 @@ MonoBehaviour:
           m_StringArgument: teleport
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 888548115232817186}
+        m_TargetAssemblyTypeName: FXInstantiator, Assembly-CSharp
+        m_MethodName: PlayEffectTransformAsParent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1415946071247946226}
+        m_TargetAssemblyTypeName: SoundInstantiator, Assembly-CSharp
+        m_MethodName: PlayAudioEvent
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5420189453251271324, guid: 43c5c4692e9a06040bd9f620e77799ee, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnTeleportPerformedBefore:
+    m_PersistentCalls:
+      m_Calls: []
+  OnTeleportPerformedAfter:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7380970982078370864}
+        m_TargetAssemblyTypeName: ActionRequiresAnAmount, Assembly-CSharp
+        m_MethodName: SubstractAmount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1670970358993942843}
+        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
+        m_MethodName: set_Enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 1670970358993942843}
         m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
         m_MethodName: ActiveAfterCooldownTime
@@ -3491,43 +3248,25 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnTeleportPerformedBefore:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 888548115232817186}
-        m_TargetAssemblyTypeName: FXInstantiator, Assembly-CSharp
-        m_MethodName: PlayEffect
-        m_Mode: 1
+      - m_Target: {fileID: 1415946071247946226}
+        m_TargetAssemblyTypeName: SoundInstantiator, Assembly-CSharp
+        m_MethodName: PlayAudioEvent
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 5420189453251271324, guid: 502f8cea66c43b842b7f2771459d9688, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnTeleportPerformedAfter:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 888548115232817186}
-        m_TargetAssemblyTypeName: FXInstantiator, Assembly-CSharp
-        m_MethodName: PlayEffect
-        m_Mode: 1
+      - m_Target: {fileID: 1415946071247946226}
+        m_TargetAssemblyTypeName: SoundInstantiator, Assembly-CSharp
+        m_MethodName: PlayAudioEvent
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7380970982078370864}
-        m_TargetAssemblyTypeName: ActionRequiresAnAmount, Assembly-CSharp
-        m_MethodName: SubstractAmount
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 5420189453251271324, guid: 67ae3d399c9051a4299c33334375cdc9, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3686,6 +3425,50 @@ MonoBehaviour:
   fxPrefab: {fileID: 100002, guid: af0b7807fe585594081eb0efbc80e5d3, type: 3}
   fxParticleSystem: {fileID: 19800002, guid: af0b7807fe585594081eb0efbc80e5d3, type: 3}
   fxDuration: 0.5
+--- !u!1 &8306457780103493668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7967985982587007633}
+  - component: {fileID: 1415946071247946226}
+  m_Layer: 3
+  m_Name: TeleportSFX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7967985982587007633
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8306457780103493668}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6303363938368418757}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1415946071247946226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8306457780103493668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db00c148e8859514fa56d0fc0344eec1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8393610088869424550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3818,10 +3601,13 @@ MonoBehaviour:
   nextEvent: 0
   OnAttackStarted:
     m_PersistentCalls:
+      m_Calls: []
+  OnAttackPerformed:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8091642979114559672}
-        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
-        m_MethodName: ActiveAfterCooldownTime
+      - m_Target: {fileID: 5900840452331920586}
+        m_TargetAssemblyTypeName: ActionRequiresAnAmount, Assembly-CSharp
+        m_MethodName: SubstractAmount
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3831,12 +3617,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  OnAttackPerformed:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5900840452331920586}
-        m_TargetAssemblyTypeName: ActionRequiresAnAmount, Assembly-CSharp
-        m_MethodName: SubstractAmount
+      - m_Target: {fileID: 8091642979114559672}
+        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
+        m_MethodName: set_Enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8091642979114559672}
+        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
+        m_MethodName: ActiveAfterCooldownTime
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3858,6 +3653,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5386060710596407151}
+        m_TargetAssemblyTypeName: SoundInstantiator, Assembly-CSharp
+        m_MethodName: PlayAudioEvent
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5420189453251271324, guid: db39823e7406d57438f2624a28ab3cd2, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnAttackConnected:
     m_PersistentCalls:
       m_Calls: []
@@ -3866,7 +3673,19 @@ MonoBehaviour:
       m_Calls: []
   OnAttackCancelled:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 8091642979114559672}
+        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
+        m_MethodName: ActiveAfterCooldownTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   _castPoint: {fileID: 4731819048427008459}
   _projectil: {fileID: 4007940287080387451, guid: e1fda84e16bd66e48956b2f87bf0812c, type: 3}
 --- !u!114 &8091642979114559672

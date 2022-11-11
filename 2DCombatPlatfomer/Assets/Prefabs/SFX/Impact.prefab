@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4311997628244937294}
   - component: {fileID: 3836584934835730040}
   m_Layer: 3
-  m_Name: SFXPlayerExplosiveMagicAttack
+  m_Name: Impact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d08e60a99cdeab4eaab2d4545b847b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _audioEvent: {fileID: 11400000, guid: 9a0860641927ad243a099b23407160cd, type: 2}
+  _audioEvent: {fileID: 11400000, guid: c69dada5c82144f44a85857a86f22dce, type: 2}
   _audioSource: {fileID: 3836584934835730040}
 --- !u!82 &3836584934835730040
 AudioSource:

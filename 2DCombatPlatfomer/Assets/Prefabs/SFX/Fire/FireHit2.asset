@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 13a9f940313d06d4caed9863bf024ebf, type: 3}
-  m_Name: PlayerShortMagicAttack
+  m_Name: FireHit2
   m_EditorClassIdentifier: 
   clips:
   - {fileID: 8300000, guid: da396a16a7f24f64cbb0054f5a56b46a, type: 3}

@@ -12,4 +12,10 @@ public class FXInstantiator : MonoBehaviour
         if(!fxParticleSystem.main.playOnAwake) fxParticleSystem.Play();
         Destroy(fx,fxDuration);
     }
+
+    public void PlayEffectTransformAsParent(){
+        GameObject fx = Instantiate(fxPrefab,fxPosition.position,fxPrefab.transform.rotation,fxPosition);
+        if(!fxParticleSystem.main.playOnAwake) fxParticleSystem.Play();
+        Destroy(fx,fxDuration);
+    }
 }
