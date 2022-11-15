@@ -2103,7 +2103,7 @@ MonoBehaviour:
         m_MethodName: PlayAudioEvent
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 5420189453251271324, guid: 3e15e7d42c8e5034fa2c4ada8ac319f9, type: 3}
+          m_ObjectArgument: {fileID: 5420189453251271324, guid: f26d14c5390795248ae9403f8d8cc678, type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3170,6 +3170,30 @@ MonoBehaviour:
   OnTeleportStart:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1670970358993942843}
+        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
+        m_MethodName: set_Enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1670970358993942843}
+        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
+        m_MethodName: ActiveAfterCooldownTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 3828110810940003402}
         m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
         m_MethodName: SetTrigger
@@ -3215,30 +3239,6 @@ MonoBehaviour:
       - m_Target: {fileID: 7380970982078370864}
         m_TargetAssemblyTypeName: ActionRequiresAnAmount, Assembly-CSharp
         m_MethodName: SubstractAmount
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1670970358993942843}
-        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
-        m_MethodName: set_Enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1670970358993942843}
-        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
-        m_MethodName: ActiveAfterCooldownTime
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3558,6 +3558,7 @@ GameObject:
   - component: {fileID: 929856331452361108}
   - component: {fileID: 8091642979114559672}
   - component: {fileID: 5900840452331920586}
+  - component: {fileID: 2230223291037058753}
   m_Layer: 3
   m_Name: MagicAttackProjectile
   m_TagString: Untagged
@@ -3751,6 +3752,112 @@ MonoBehaviour:
   OnAmountNotEnough:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2230223291037058753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8923809313660443847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bae9eff294585b479d04b9b62d6c76b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackData: {fileID: 11400000, guid: f9e344bfa1b9992429b3c52bd098519d, type: 2}
+  attackingEntity: {fileID: 7351825493083901190}
+  _attackAnimationName: magicProjectile
+  attackStatus: 0
+  nextEvent: 0
+  OnAttackStarted:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAttackPerformed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5900840452331920586}
+        m_TargetAssemblyTypeName: ActionRequiresAnAmount, Assembly-CSharp
+        m_MethodName: SubstractAmount
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8091642979114559672}
+        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
+        m_MethodName: set_Enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 8091642979114559672}
+        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
+        m_MethodName: ActiveAfterCooldownTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 118922675709250935}
+        m_TargetAssemblyTypeName: FXInstantiator, Assembly-CSharp
+        m_MethodName: PlayEffect
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5386060710596407151}
+        m_TargetAssemblyTypeName: SoundInstantiator, Assembly-CSharp
+        m_MethodName: PlayAudioEvent
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 5420189453251271324, guid: db39823e7406d57438f2624a28ab3cd2, type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnAttackConnected:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAttackFinished:
+    m_PersistentCalls:
+      m_Calls: []
+  OnAttackCancelled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8091642979114559672}
+        m_TargetAssemblyTypeName: ActionCooldown, Assembly-CSharp
+        m_MethodName: ActiveAfterCooldownTime
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _castPoint: {fileID: 4731819048427008459}
+  _projectil: {fileID: 4007940287080387451, guid: e1fda84e16bd66e48956b2f87bf0812c, type: 3}
 --- !u!1001 &4603742430394716560
 PrefabInstance:
   m_ObjectHideFlags: 0
